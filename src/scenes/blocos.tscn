@@ -1,0 +1,76 @@
+[gd_scene load_steps=2 format=3 uid="uid://cqebgx0pjamdx"]
+
+[ext_resource type="Script" uid="uid://cmhp5u4yf3y08" path="res://scripts/blocos.gd" id="1_3p2qg"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3p2qg")
+
+[node name="Cima" type="Button" parent="."]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 64.0
+offset_right = 192.0
+offset_bottom = 128.0
+text = "Cima"
+
+[node name="Baixo" type="Button" parent="."]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 128.0
+offset_right = 192.0
+offset_bottom = 192.0
+text = "Baixo"
+
+[node name="Esquerda" type="Button" parent="."]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 192.0
+offset_right = 192.0
+offset_bottom = 256.0
+text = "Esquerda
+"
+
+[node name="Direita" type="Button" parent="."]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 256.0
+offset_right = 192.0
+offset_bottom = 320.0
+text = "Direita"
+
+[node name="Remover" type="Button" parent="."]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 384.0
+offset_right = 192.0
+offset_bottom = 448.0
+text = "Remover"
+
+[node name="Executar" type="Button" parent="."]
+layout_mode = 0
+offset_left = 256.0
+offset_top = 384.0
+offset_right = 448.0
+offset_bottom = 448.0
+text = "Executar"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 256.0
+offset_top = 64.0
+offset_right = 448.0
+offset_bottom = 320.0
+
+[connection signal="pressed" from="Cima" to="." method="_on_cima_pressed"]
+[connection signal="pressed" from="Baixo" to="." method="_on_baixo_pressed"]
+[connection signal="pressed" from="Esquerda" to="." method="_on_esquerda_pressed"]
+[connection signal="pressed" from="Direita" to="." method="_on_direita_pressed"]
+[connection signal="pressed" from="Remover" to="." method="_on_remover_pressed"]
+[connection signal="pressed" from="Executar" to="." method="_on_executar_pressed"]
