@@ -8,6 +8,7 @@ var grid = []
 var ObstacleScene = preload("res://scenes/obstacleScene.tscn")
 var playerScene = preload("res://scenes/playerScene.tscn")
 
+var player = null
 func _ready():
 	for x in range(GRID_WIDTH):
 		var col = []
@@ -25,8 +26,8 @@ func _ready():
 	for pos in obstacle_positions:
 		spawn_obstacle(pos)
 
-	spawn_player(Vector2(0, 0))
-	
+	player = spawn_player(Vector2(0, 0))
+
 func spawn_obstacle(pos: Vector2):
 	var obstacle = ObstacleScene.instantiate()
 	grid[pos.x][pos.y] = obstacle
@@ -34,10 +35,12 @@ func spawn_obstacle(pos: Vector2):
 	obstacle.setup(pos, self)
 
 func spawn_player(pos: Vector2):
-	var player = playerScene.instantiate()
+	player = playerScene.instantiate()
 	grid[pos.x][pos.y] = player
 	add_child(player)
 	player.setup(pos, self)
+	player.updatePlayerPosition.connect(updatePlayerPosition)
+	return player
 
 func is_cell_free(pos: Vector2) -> bool:
 	if pos.x < 0 or pos.x >= GRID_WIDTH or pos.y < 0 or pos.y >= GRID_HEIGHT:
@@ -53,3 +56,9 @@ func clear_cell(pos: Vector2):
 	if pos.x < 0 or pos.x >= GRID_WIDTH or pos.y < 0 or pos.y >= GRID_HEIGHT:
 		return
 	grid[pos.x][pos.y] = null
+	
+#Métodos responsáveis por dar update na grid
+func updatePlayerPosition(old_pos, new_position):
+	print("Grid recebeu: Player foi para ", new_position)
+	grid[old_pos.x][old_pos.y] = null
+	player.setup(new_position, self)
