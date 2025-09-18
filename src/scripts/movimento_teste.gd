@@ -16,11 +16,11 @@ func _on_control_mover(dir: Variant) -> void:
 	
 	match dir:
 		"l":
-			$CharacterBody2D.move_local_x(50)
-		
-		"r":
 			novo.flip_h = true
 			$CharacterBody2D.move_local_x(-50)
+		
+		"r":
+			$CharacterBody2D.move_local_x(50)
 		
 		"d":
 			novo.rotation_degrees = 90
