@@ -72,13 +72,14 @@ func _process(_delta: float) -> void:
 			bloco.position = mouse
 		
 		# Se o mouse for solto
-		if Input.is_action_just_released("mouse_release"):
+		if Input.is_action_just_released("mouse_click"):
 			if modo and mouse_dentro:
 				
 				comandos.append(get_tree().get_nodes_in_group("bloco_temporario")[0].get_meta("tipo"))
 				
 				var bloco = bloco_comando.instantiate()
 				$InputList.add_child(bloco)
+				bloco.clicado.connect(_on_clicado)
 				bloco.tipo = comandos[-1]
 				
 				bloco.position.x = 8 + coluna * 64
@@ -96,7 +97,6 @@ func _process(_delta: float) -> void:
 			
 			get_tree().call_group("bloco_temporario", "queue_free")
 			modo = false
-
 
 # Os métodos abaixo invocam a criação do bloco quando o botão é acionado
 func _on_cima_button_down() -> void:
@@ -132,3 +132,11 @@ func _on_input_list_mouse_entered() -> void:
 
 func _on_input_list_mouse_exited() -> void:
 	mouse_dentro = false
+
+
+# Espera pela seleção de um bloco de comando
+func _on_clicado(caminho) -> void:
+	if not modo:
+		var bloco = get_node(caminho)
+		add_elemento(bloco.tipo)
+		rm_elemento()
