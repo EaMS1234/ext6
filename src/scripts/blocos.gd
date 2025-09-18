@@ -10,7 +10,7 @@ var bloco_comando = load("res://scenes/bloco_comando.tscn")
 var sobre_bloco = null
 
 # Número de blocos de código por linha
-@export var max_blocos_linha = 5
+@export var max_blocos_linha = 6
 
 # Tempo de espera entre o envio dos sinais de movimentação (milisegundos)
 @export var delay = 250
@@ -81,8 +81,8 @@ func posicionar_elemento(bloco):
 	var coluna = (bloco.pos_fila - 1) % 5
 	var linha = (bloco.pos_fila - 1) / 5
 	
-	bloco.position.x = 8 + coluna * 64
-	bloco.position.y = 8 + linha * 64
+	bloco.position.x = 8 + coluna * 32
+	bloco.position.y = 8 + linha * 32
 
 func reposicionar_elemento(bloco):
 	for cmd in get_tree().get_nodes_in_group("bloco_comando"):

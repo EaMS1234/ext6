@@ -3,33 +3,26 @@ var grid_controller
 var grid_pos = Vector2()
 signal updatePlayerPosition(oldPosition, newPosition)
 
-func setup(pos: Vector2, controller):
-	grid_controller = controller
+func setup(pos: Vector2, gridController, gameControl):
+	grid_controller = gridController
 	grid_pos = pos
 	grid_controller.set_cell(grid_pos, self)
 	position = grid_pos * 16
-
-
+	gameControl.mover.connect(move)
+	
 func move(dir):
 	var old_pos = grid_pos
 	#Direita
-	if dir == 0:
-		grid_pos.x+=1
-	elif dir == 1:
-		grid_pos.y+=1
-	elif dir == 2:
-		grid_pos.x-=1
-	elif dir == 3:
-		grid_pos.y-=1
+	if dir == "r":
+		if grid_pos.x+1 < grid_controller.GRID_WIDTH:
+			grid_pos.x+=1
+	elif dir == "d":
+		if grid_pos.y+1 < grid_controller.GRID_HEIGHT:
+			grid_pos.y+=1
+	elif dir == "l":
+		if grid_pos.x-1 >= 0:
+			grid_pos.x-=1
+	elif dir == "u":
+		if grid_pos.y-1 >= 0:
+			grid_pos.y-=1
 	emit_signal("updatePlayerPosition", old_pos, grid_pos)
-	
-func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("ui_right"):
-		move(0)
-	elif Input.is_action_just_pressed("ui_down"):
-		move(1)
-	elif Input.is_action_just_pressed("ui_left"):
-		move(2)
-	elif Input.is_action_just_pressed("ui_up"):
-		move(3)
-	

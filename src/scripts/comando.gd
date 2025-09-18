@@ -33,7 +33,11 @@ func _draw() -> void:
 			$Seta.texture = load("res://assets/sprites/loop.png")
 			var texto = Label.new()
 			self.add_child(texto)
+			texto.position.y -= 0
+			texto.position.x -= 0
+			texto.scale *= 0.5
 			texto.text = tipo
+			
 
 
 func _process(_delta: float) -> void:

@@ -38,7 +38,7 @@ func spawn_player(pos: Vector2):
 	player = playerScene.instantiate()
 	grid[pos.x][pos.y] = player
 	add_child(player)
-	player.setup(pos, self)
+	player.setup(pos, self, $Control)
 	player.updatePlayerPosition.connect(updatePlayerPosition)
 	return player
 
@@ -61,4 +61,4 @@ func clear_cell(pos: Vector2):
 func updatePlayerPosition(old_pos, new_position):
 	print("Grid recebeu: Player foi para ", new_position)
 	grid[old_pos.x][old_pos.y] = null
-	player.setup(new_position, self)
+	player.setup(new_position, self, $Control)

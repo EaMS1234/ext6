@@ -13,67 +13,67 @@ script = ExtResource("1_3p2qg")
 
 [node name="Cima" type="Button" parent="."]
 layout_mode = 0
-offset_left = 64.0
-offset_top = 64.0
-offset_right = 152.0
-offset_bottom = 95.0
+offset_left = 176.0
+offset_top = 8.0
+offset_right = 264.0
+offset_bottom = 39.0
 text = "Cima"
 
 [node name="Baixo" type="Button" parent="."]
 layout_mode = 0
-offset_left = 64.0
-offset_top = 104.0
-offset_right = 152.0
-offset_bottom = 135.0
+offset_left = 176.0
+offset_top = 40.0
+offset_right = 264.0
+offset_bottom = 71.0
 text = "Baixo"
 
 [node name="Esquerda" type="Button" parent="."]
 layout_mode = 0
-offset_left = 64.0
-offset_top = 144.0
-offset_right = 152.0
-offset_bottom = 175.0
+offset_left = 176.0
+offset_top = 72.0
+offset_right = 264.0
+offset_bottom = 103.0
 text = "Esquerda
 "
 
 [node name="Direita" type="Button" parent="."]
 layout_mode = 0
-offset_left = 64.0
-offset_top = 184.0
-offset_right = 152.0
-offset_bottom = 215.0
+offset_left = 176.0
+offset_top = 104.0
+offset_right = 264.0
+offset_bottom = 135.0
 text = "Direita"
 
 [node name="Remover" type="Button" parent="."]
 layout_mode = 0
-offset_left = 64.0
-offset_top = 376.0
-offset_right = 152.0
-offset_bottom = 407.0
+offset_left = 176.0
+offset_top = 200.0
+offset_right = 264.0
+offset_bottom = 231.0
 text = "Remover"
 
 [node name="Executar" type="Button" parent="."]
 layout_mode = 0
-offset_left = 64.0
-offset_top = 416.0
-offset_right = 152.0
-offset_bottom = 447.0
+offset_left = 176.0
+offset_top = 232.0
+offset_right = 264.0
+offset_bottom = 263.0
 text = "Executar"
 
 [node name="Loop" type="Button" parent="."]
 layout_mode = 0
-offset_left = 64.0
-offset_top = 256.0
-offset_right = 152.0
-offset_bottom = 287.0
+offset_left = 176.0
+offset_top = 136.0
+offset_right = 264.0
+offset_bottom = 167.0
 text = "Loop"
 
 [node name="End" type="Button" parent="."]
 layout_mode = 0
-offset_left = 64.0
-offset_top = 295.0
-offset_right = 152.0
-offset_bottom = 326.0
+offset_left = 176.0
+offset_top = 168.0
+offset_right = 264.0
+offset_bottom = 199.0
 text = "Fim"
 
 [node name="Label" type="Label" parent="."]
@@ -87,10 +87,10 @@ offset_bottom = 295.0
 
 [node name="InputList" type="ColorRect" parent="."]
 layout_mode = 0
-offset_left = 192.0
-offset_top = 64.0
-offset_right = 512.0
-offset_bottom = 448.0
+offset_left = 280.0
+offset_top = 8.0
+offset_right = 480.0
+offset_bottom = 263.0
 color = Color(0.13803378, 0.13803375, 0.13803375, 1)
 
 [connection signal="button_down" from="Cima" to="." method="_on_cima_button_down"]

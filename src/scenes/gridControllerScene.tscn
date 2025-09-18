@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://ldlmwcev3j6m" path="res://scripts/grid_debug_visual.gd" id="2_w0m30"]
 
 [node name="GridControllerScene" type="Node2D"]
+position = Vector2(1, 2)
 script = ExtResource("1_twc3c")
 
 [node name="gridDebugVisual" type="Sprite2D" parent="."]

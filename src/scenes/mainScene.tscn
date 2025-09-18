@@ -1,19 +1,20 @@
-[gd_scene load_steps=4 format=3 uid="uid://cmeww0d7jev38"]
+[gd_scene load_steps=3 format=3 uid="uid://cmeww0d7jev38"]
 
 [ext_resource type="PackedScene" uid="uid://d283lmnn7guma" path="res://scenes/gridControllerScene.tscn" id="1_w2twt"]
-[ext_resource type="Script" uid="uid://b1jaffbu1u4gb" path="res://scripts/movement_controller.gd" id="2_twn0q"]
 [ext_resource type="PackedScene" uid="uid://cqebgx0pjamdx" path="res://scenes/blocos.tscn" id="3_hhxvm"]
 
 [node name="MainScene" type="Node2D"]
 
 [node name="GridControllerScene" parent="." instance=ExtResource("1_w2twt")]
-position = Vector2(35, 33)
+position = Vector2(8, 35)
 
-[node name="movementController" type="Node2D" parent="GridControllerScene"]
-script = ExtResource("2_twn0q")
-
-[node name="Control" parent="." instance=ExtResource("3_hhxvm")]
-offset_left = -1.0
-offset_top = 2.0
-offset_right = -1.0
-offset_bottom = 2.0
+[node name="Control" parent="GridControllerScene" instance=ExtResource("3_hhxvm")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = -9.0
+offset_top = -33.0
+offset_right = -9.0
+offset_bottom = -33.0
+grow_horizontal = 1
+grow_vertical = 1
