@@ -66,8 +66,7 @@ func rm_elemento(pos_fila):
 		if pos_fila < 0:
 			pos_fila = get_tree().get_node_count_in_group("bloco_comando")
 		
-		# print("Removendo o nó na posição: ", pos_fila)
-		
+		# Atualiza a posição dos blocos restantes
 		for cmd in get_tree().get_nodes_in_group("bloco_comando"):
 			if cmd.pos_fila == pos_fila:
 				cmd.queue_free()
@@ -84,9 +83,6 @@ func posicionar_elemento(bloco):
 	
 	bloco.position.x = 8 + coluna * 64
 	bloco.position.y = 8 + linha * 64
-	
-	# print("linha: ", linha)
-	# print("coluna: ", coluna)
 
 func reposicionar_elemento(bloco):
 	for cmd in get_tree().get_nodes_in_group("bloco_comando"):
@@ -161,10 +157,11 @@ func _on_executar_pressed() -> void:
 	var lista = get_tree().get_nodes_in_group("bloco_comando")
 	lista.sort_custom(func(a, b): return a.pos_fila < b.pos_fila)
 	
+	# Fila de ações a serem emitidas
 	var fila = []
 	
-	var stack_pos = []
-	var stack_qtd = []
+	var stack_pos = []  # Marca a posição inicial de um loop
+	var stack_qtd = []  # Marca a quantidade de repetições do loop
 	
 	var i = 0
 	while i < len(lista):
@@ -172,31 +169,30 @@ func _on_executar_pressed() -> void:
 		
 		var cmd = lista[i]
 		
+		# Início de loop
 		if not cmd.tipo in ["u", "d", "l", "r", "end"]:
-			print("Início de looping")
-			# Início de loop
 			stack_pos.push_front(i)
-			stack_qtd.push_front(4) # <---------------------------------- ALTERAR REPETIÇÕES DO LOOP
-			
-		elif cmd.tipo == "end":
+			stack_qtd.push_front(int(cmd.tipo) - 1)
+		
+		# Retorna ao início do loop
+		elif cmd.tipo == "end" and not stack_qtd.is_empty():
 			if stack_qtd.front() > 0:
 				i = stack_pos.front()
-				print("Voltando ao passo ", i)
 				stack_qtd.push_front(stack_qtd.pop_front() - 1)
-				print("Restam ", stack_qtd.front())
-				pass
 			
+			# Fim do looping
 			else:
 				stack_qtd.pop_front()
 				stack_pos.pop_front()
-				print("Fim do looping!")
 		
+		# Adiciona as ações à fila
 		else:
 			print(cmd.tipo)
 			fila.append(cmd.tipo)
 			
 		i += 1
 	
+	# Emite cada ação da fila com um delay
 	while not fila.is_empty():
 		mover.emit(fila.front())
 		fila.pop_front()
