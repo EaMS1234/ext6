@@ -1,4 +1,5 @@
 extends Node2D
+class_name WinningCell
 
 var grid_controller
 var grid_pos: Vector2

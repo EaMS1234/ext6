@@ -14,15 +14,15 @@ func move(dir):
 	var old_pos = grid_pos
 	#Direita
 	if dir == "r":
-		if grid_pos.x+1 < grid_controller.GRID_WIDTH:
+		if grid_controller.is_cell_valid(Vector2(grid_pos.x+1, grid_pos.y)):
 			grid_pos.x+=1
 	elif dir == "d":
-		if grid_pos.y+1 < grid_controller.GRID_HEIGHT:
+		if grid_controller.is_cell_valid(Vector2(grid_pos.x, grid_pos.y+1)):
 			grid_pos.y+=1
 	elif dir == "l":
-		if grid_pos.x-1 >= 0:
+		if grid_controller.is_cell_valid(Vector2(grid_pos.x-1, grid_pos.y)):
 			grid_pos.x-=1
 	elif dir == "u":
-		if grid_pos.y-1 >= 0:
+		if grid_controller.is_cell_valid(Vector2(grid_pos.x, grid_pos.y-1)):
 			grid_pos.y-=1
 	emit_signal("updatePlayerPosition", old_pos, grid_pos)

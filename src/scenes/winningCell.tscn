@@ -1,11 +1,11 @@
 [gd_scene load_steps=3 format=3 uid="uid://cd8c21omhq8nj"]
 
 [ext_resource type="Script" uid="uid://bseiteige1rwx" path="res://scripts/obstacle.gd" id="1_chyjv"]
-[ext_resource type="Texture2D" uid="uid://bermedh360bbb" path="res://sprites/obstacle.png" id="2_2hniu"]
+[ext_resource type="Texture2D" uid="uid://c082mkykpo2t8" path="res://sprites/winningCell.png" id="2_chyjv"]
 
-[node name="Obstacle" type="Node2D"]
+[node name="winningCell" type="Node2D"]
 script = ExtResource("1_chyjv")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(8, 8)
-texture = ExtResource("2_2hniu")
+texture = ExtResource("2_chyjv")
