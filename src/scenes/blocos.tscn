@@ -13,93 +13,51 @@ script = ExtResource("1_3p2qg")
 
 [node name="Cima" type="Button" parent="."]
 layout_mode = 0
-<<<<<<< HEAD
-offset_left = 217.0
-offset_top = -2.0
-offset_right = 345.0
-offset_bottom = 62.0
-=======
 offset_left = 64.0
 offset_top = 64.0
 offset_right = 152.0
 offset_bottom = 95.0
->>>>>>> c41d5800ffa02a670cbb4cb0cf4b423409f5f4a3
 text = "Cima"
 
 [node name="Baixo" type="Button" parent="."]
 layout_mode = 0
-<<<<<<< HEAD
-offset_left = 216.0
-offset_top = 63.0
-offset_right = 344.0
-offset_bottom = 127.0
-=======
 offset_left = 64.0
 offset_top = 104.0
 offset_right = 152.0
 offset_bottom = 135.0
->>>>>>> c41d5800ffa02a670cbb4cb0cf4b423409f5f4a3
 text = "Baixo"
 
 [node name="Esquerda" type="Button" parent="."]
 layout_mode = 0
-<<<<<<< HEAD
-offset_left = 216.0
-offset_top = 129.0
-offset_right = 344.0
-offset_bottom = 193.0
-=======
 offset_left = 64.0
 offset_top = 144.0
 offset_right = 152.0
 offset_bottom = 175.0
->>>>>>> c41d5800ffa02a670cbb4cb0cf4b423409f5f4a3
 text = "Esquerda
 "
 
 [node name="Direita" type="Button" parent="."]
 layout_mode = 0
-<<<<<<< HEAD
-offset_left = 216.0
-offset_top = 195.0
-offset_right = 344.0
-offset_bottom = 259.0
-=======
 offset_left = 64.0
 offset_top = 184.0
 offset_right = 152.0
 offset_bottom = 215.0
->>>>>>> c41d5800ffa02a670cbb4cb0cf4b423409f5f4a3
 text = "Direita"
 
 [node name="Remover" type="Button" parent="."]
 layout_mode = 0
-<<<<<<< HEAD
-offset_left = 347.0
-offset_top = 195.0
-offset_right = 475.0
-offset_bottom = 259.0
-=======
 offset_left = 64.0
 offset_top = 376.0
 offset_right = 152.0
 offset_bottom = 407.0
->>>>>>> c41d5800ffa02a670cbb4cb0cf4b423409f5f4a3
 text = "Remover"
 
 [node name="Executar" type="Button" parent="."]
 layout_mode = 0
-<<<<<<< HEAD
-offset_left = 347.0
-offset_top = 128.0
-offset_right = 476.0
-offset_bottom = 192.0
-=======
 offset_left = 64.0
 offset_top = 416.0
 offset_right = 152.0
 offset_bottom = 447.0
->>>>>>> c41d5800ffa02a670cbb4cb0cf4b423409f5f4a3
 text = "Executar"
 
 [node name="Loop" type="Button" parent="."]
@@ -122,17 +80,10 @@ text = "Fim"
 visible = false
 layout_mode = 1
 anchors_preset = -1
-<<<<<<< HEAD
-offset_left = 296.0
-offset_top = 6.0
-offset_right = 488.0
-offset_bottom = 262.0
-=======
 offset_left = 160.0
 offset_top = 64.0
 offset_right = 256.0
 offset_bottom = 295.0
->>>>>>> c41d5800ffa02a670cbb4cb0cf4b423409f5f4a3
 
 [node name="InputList" type="ColorRect" parent="."]
 layout_mode = 0
