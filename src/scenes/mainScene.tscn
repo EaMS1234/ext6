@@ -13,3 +13,7 @@ position = Vector2(35, 33)
 script = ExtResource("2_twn0q")
 
 [node name="Control" parent="." instance=ExtResource("3_hhxvm")]
+offset_left = -1.0
+offset_top = 2.0
+offset_right = -1.0
+offset_bottom = 2.0

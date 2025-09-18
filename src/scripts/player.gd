@@ -23,7 +23,6 @@ func move(dir):
 		grid_pos.y-=1
 	emit_signal("updatePlayerPosition", old_pos, grid_pos)
 	
-
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("ui_right"):
 		move(0)
