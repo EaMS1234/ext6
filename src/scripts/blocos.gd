@@ -12,6 +12,9 @@ var sobre_bloco = null
 # Número de blocos de código por linha
 @export var max_blocos_linha = 5
 
+# Tempo de espera entre o envio dos sinais de movimentação (milisegundos)
+@export var delay = 250
+
 # O modo do mouse define se o jogador está segurando um bloco ou não.
 var modo = false
 
@@ -28,6 +31,9 @@ func add_elemento(acao):
 		# Escolhe a sprite do bloco
 		bloco_temp.get_child(0).texture = load("res://assets/sprites/arrow.png")
 		match acao:
+			"r":
+				pass
+			
 			"l":
 				bloco_temp.get_child(0).flip_h = true
 				
@@ -36,6 +42,18 @@ func add_elemento(acao):
 			
 			"d":
 				bloco_temp.rotation_degrees = 90
+			
+			"end":
+				bloco_temp.get_child(0).texture = load("res://assets/sprites/end.png")
+			
+			_:
+				bloco_temp.get_child(0).texture = load("res://assets/sprites/loop.png")
+				
+				var num = Label.new()
+				bloco_temp.add_child(num)
+				num.position.x -= 24
+				num.position.y -= 24
+				num.text = acao
 		
 		# Define o tipo do bloco
 		bloco_temp.set_meta("tipo", acao)
@@ -48,7 +66,7 @@ func rm_elemento(pos_fila):
 		if pos_fila < 0:
 			pos_fila = get_tree().get_node_count_in_group("bloco_comando")
 		
-		print("Removendo o nó na posição: ", pos_fila)
+		# print("Removendo o nó na posição: ", pos_fila)
 		
 		for cmd in get_tree().get_nodes_in_group("bloco_comando"):
 			if cmd.pos_fila == pos_fila:
@@ -67,16 +85,15 @@ func posicionar_elemento(bloco):
 	bloco.position.x = 8 + coluna * 64
 	bloco.position.y = 8 + linha * 64
 	
-	print("linha: ", linha)
-	print("coluna: ", coluna)
+	# print("linha: ", linha)
+	# print("coluna: ", coluna)
 
 func reposicionar_elemento(bloco):
 	for cmd in get_tree().get_nodes_in_group("bloco_comando"):
 		if cmd.pos_fila >= bloco.pos_fila:
 			cmd.pos_fila += 1
 			posicionar_elemento(cmd)
-	
-	
+
 
 # Função principal
 func _process(_delta: float) -> void:
@@ -130,6 +147,12 @@ func _on_direita_button_down() -> void:
 func _on_baixo_button_down() -> void:
 	add_elemento("d")
 
+func _on_loop_button_down() -> void:
+	add_elemento("5")
+
+func _on_end_button_down() -> void:
+	add_elemento("end")
+
 
 # Funcionalidade dos botões "remover" e "executar"
 func _on_executar_pressed() -> void:
@@ -138,9 +161,46 @@ func _on_executar_pressed() -> void:
 	var lista = get_tree().get_nodes_in_group("bloco_comando")
 	lista.sort_custom(func(a, b): return a.pos_fila < b.pos_fila)
 	
-	for cmd in lista:
-		mover.emit(cmd.tipo)
-		# print(cmd)
+	var fila = []
+	
+	var stack_pos = []
+	var stack_qtd = []
+	
+	var i = 0
+	while i < len(lista):
+		print("Passo ", i)
+		
+		var cmd = lista[i]
+		
+		if not cmd.tipo in ["u", "d", "l", "r", "end"]:
+			print("Início de looping")
+			# Início de loop
+			stack_pos.push_front(i)
+			stack_qtd.push_front(4) # <---------------------------------- ALTERAR REPETIÇÕES DO LOOP
+			
+		elif cmd.tipo == "end":
+			if stack_qtd.front() > 0:
+				i = stack_pos.front()
+				print("Voltando ao passo ", i)
+				stack_qtd.push_front(stack_qtd.pop_front() - 1)
+				print("Restam ", stack_qtd.front())
+				pass
+			
+			else:
+				stack_qtd.pop_front()
+				stack_pos.pop_front()
+				print("Fim do looping!")
+		
+		else:
+			print(cmd.tipo)
+			fila.append(cmd.tipo)
+			
+		i += 1
+	
+	while not fila.is_empty():
+		mover.emit(fila.front())
+		fila.pop_front()
+		await get_tree().create_timer(delay / 1000.0).timeout
 
 
 func _on_remover_pressed() -> void:

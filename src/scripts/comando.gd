@@ -8,10 +8,15 @@ signal sair()
 @export var tipo = "r"
 @export var pos_fila = 0
 
+@export var associado = null
+
 var dentro
 
 func _draw() -> void:
 	match tipo:
+		"r":
+			pass
+		
 		"l":
 			$Seta.flip_h = true
 		
@@ -21,6 +26,14 @@ func _draw() -> void:
 		"d":
 			$Seta.rotation_degrees = 90
 			
+		"end":
+			$Seta.texture = load("res://assets/sprites/end.png")
+		
+		_:
+			$Seta.texture = load("res://assets/sprites/loop.png")
+			var texto = Label.new()
+			self.add_child(texto)
+			texto.text = tipo
 
 
 func _process(_delta: float) -> void:
@@ -31,9 +44,17 @@ func _process(_delta: float) -> void:
 func _on_color_rect_mouse_entered() -> void:
 	dentro = true
 	entrar.emit(get_path())
+	
+	if associado != null:
+		associado.get_child(0).color = Color(1.0, 1.0, 1.0, 0.125)
+		
 	$BG.color = Color(1.0, 1.0, 1.0, 0.125)
 
 func _on_color_rect_mouse_exited() -> void:
 	dentro = false
 	sair.emit()
+	
+	if associado != null:
+		associado.get_child(0).color = Color(1.0, 1.0, 1.0, 0.125)
+
 	$BG.color = Color(1.0, 1.0, 1.0, 0.0)

@@ -60,6 +60,22 @@ offset_right = 152.0
 offset_bottom = 447.0
 text = "Executar"
 
+[node name="Loop" type="Button" parent="."]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 256.0
+offset_right = 152.0
+offset_bottom = 287.0
+text = "Loop"
+
+[node name="End" type="Button" parent="."]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 295.0
+offset_right = 152.0
+offset_bottom = 326.0
+text = "Fim"
+
 [node name="Label" type="Label" parent="."]
 visible = false
 layout_mode = 1
@@ -83,5 +99,7 @@ color = Color(0.13803378, 0.13803375, 0.13803375, 1)
 [connection signal="button_down" from="Direita" to="." method="_on_direita_button_down"]
 [connection signal="pressed" from="Remover" to="." method="_on_remover_pressed"]
 [connection signal="pressed" from="Executar" to="." method="_on_executar_pressed"]
+[connection signal="button_down" from="Loop" to="." method="_on_loop_button_down"]
+[connection signal="button_down" from="End" to="." method="_on_end_button_down"]
 [connection signal="mouse_entered" from="InputList" to="." method="_on_input_list_mouse_entered"]
 [connection signal="mouse_exited" from="InputList" to="." method="_on_input_list_mouse_exited"]
