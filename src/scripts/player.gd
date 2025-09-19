@@ -1,4 +1,6 @@
 extends Node2D
+
+var type = "player"
 var grid_controller
 var grid_pos = Vector2()
 signal updatePlayerPosition(oldPosition, newPosition)

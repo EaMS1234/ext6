@@ -1,7 +1,7 @@
 extends Node2D
 
 
-var type = "obstacle"
+var type = "winningCell"
 var grid_controller
 var grid_pos: Vector2
 

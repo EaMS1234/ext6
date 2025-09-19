@@ -2,6 +2,7 @@ extends Control
 
 signal executar()
 signal mover(dir)
+signal finalizar()
 
 
 # Assets a serem carregados na memória
@@ -197,7 +198,8 @@ func _on_executar_pressed() -> void:
 		mover.emit(fila.front())
 		fila.pop_front()
 		await get_tree().create_timer(delay / 1000.0).timeout
-
+	
+	finalizar.emit()
 
 func _on_remover_pressed() -> void:
 	rm_elemento(-1)
