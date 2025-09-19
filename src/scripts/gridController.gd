@@ -25,17 +25,28 @@ func generateLevel():
 		original_grid.append(col)
 	
 	var obstacle_positions = [
+		Vector2(2, 0),
+		Vector2(2, 1),
 		Vector2(2, 2),
-		Vector2(3, 4),
-		Vector2(5, 1),
-		Vector2(7, 7),
-		Vector2(7, 4),
+		Vector2(2, 3),
+		Vector2(2, 4),
+		Vector2(2, 5),
+		Vector2(2, 6),
+		Vector2(2, 7),
+		Vector2(5, 3),
+		Vector2(5, 4),
+		Vector2(5, 5),
+		Vector2(5, 6),
+		Vector2(5, 7),
+		Vector2(5, 8),
+		Vector2(5, 9),
+		Vector2(6, 3),
+		Vector2(7, 3),
 	]
 	for pos in obstacle_positions:
 		spawn_obstacle(pos)
 	
-	spawn_winningCell(Vector2(1, 1))
-	spawn_winningCell(Vector2(1, 5))
+	spawn_winningCell(Vector2(7, 5))
 	player = spawn_player(Vector2(0, 0))
 func spawn_obstacle(pos: Vector2):
 	var obstacle = obstacle_scene.instantiate()

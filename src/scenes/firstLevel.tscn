@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://cfh7fdjgkkuls"]
+
+[ext_resource type="PackedScene" uid="uid://d283lmnn7guma" path="res://scenes/gridControllerScene.tscn" id="1_mb0va"]
+[ext_resource type="PackedScene" uid="uid://cqebgx0pjamdx" path="res://scenes/blocos.tscn" id="2_hrey8"]
+
+[node name="MainScene" type="Node2D"]
+
+[node name="GridControllerScene" parent="." instance=ExtResource("1_mb0va")]
+position = Vector2(8, 35)
+
+[node name="Control" parent="GridControllerScene" instance=ExtResource("2_hrey8")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = -9.0
+offset_top = -33.0
+offset_right = -9.0
+offset_bottom = -33.0
+grow_horizontal = 1
+grow_vertical = 1
