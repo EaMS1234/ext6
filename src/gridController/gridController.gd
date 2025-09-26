@@ -8,7 +8,7 @@ var backup_grid = null
 
 var obstacle_scene = preload("res://gridController/obstacleScene/obstacleScene.tscn")
 var player_scene = preload("res://gridController/playerScene/playerScene.tscn")
-var winning_Cell_Scene = preload("res://scenes/winningCell.tscn")
+var winning_Cell_Scene = preload("res://gridController/winningCell/winningCell.tscn")
 var player = null
 
 func _ready():
