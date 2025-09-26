@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://d283lmnn7guma"]
 
-[ext_resource type="Script" uid="uid://cd3tt883i7n0p" path="res://scripts/gridController.gd" id="1_twc3c"]
-[ext_resource type="Script" uid="uid://ldlmwcev3j6m" path="res://scripts/grid_debug_visual.gd" id="2_w0m30"]
+[ext_resource type="Script" uid="uid://cd3tt883i7n0p" path="res://gridController/gridController.gd" id="1_twc3c"]
+[ext_resource type="Script" uid="uid://ldlmwcev3j6m" path="res://gridController/grid_debug_visual.gd" id="2_w0m30"]
 
 [node name="GridControllerScene" type="Node2D"]
 position = Vector2(1, 2)
