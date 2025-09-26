@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://c8obxu3r562fb"]
 
-[ext_resource type="Script" uid="uid://bseiteige1rwx" path="res://scripts/obstacle.gd" id="1_r86fr"]
+[ext_resource type="Script" uid="uid://bseiteige1rwx" path="res://gridController/obstacleScene/obstacle.gd" id="1_r86fr"]
 [ext_resource type="Texture2D" uid="uid://bermedh360bbb" path="res://sprites/obstacle.png" id="2_4bqfj"]
 
 [node name="Obstacle" type="Node2D"]
