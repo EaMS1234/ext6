@@ -6,7 +6,7 @@ signal finalizar()
 
 
 # Assets a serem carregados na memória
-var bloco_comando = load("res://scenes/bloco_comando.tscn")
+var bloco_comando = load("res://blocos/bloco_comando/bloco_comando.tscn")
 
 var sobre_bloco = null
 
@@ -30,7 +30,7 @@ func add_elemento(acao):
 		self.add_child(bloco_temp)
 		
 		# Escolhe a sprite do bloco
-		bloco_temp.get_child(0).texture = load("res://assets/sprites/arrow.png")
+		bloco_temp.get_child(0).texture = load("res://blocos/arrow.png")
 		match acao:
 			"r":
 				pass
@@ -45,10 +45,10 @@ func add_elemento(acao):
 				bloco_temp.rotation_degrees = 90
 			
 			"end":
-				bloco_temp.get_child(0).texture = load("res://assets/sprites/end.png")
+				bloco_temp.get_child(0).texture = load("res://blocos/end.png")
 			
 			_:
-				bloco_temp.get_child(0).texture = load("res://assets/sprites/loop.png")
+				bloco_temp.get_child(0).texture = load("res://blocos/loop.png")
 				
 				var num = Label.new()
 				bloco_temp.add_child(num)

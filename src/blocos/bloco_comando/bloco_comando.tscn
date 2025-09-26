@@ -1,10 +1,10 @@
 [gd_scene load_steps=3 format=3 uid="uid://csr3twhyhbsd4"]
 
-[ext_resource type="Script" uid="uid://c8udno25c2ujv" path="res://scripts/comando.gd" id="1_c6wkf"]
-[ext_resource type="Texture2D" uid="uid://bjj2kommt4s53" path="res://assets/sprites/arrow.png" id="2_m3ybp"]
+[ext_resource type="Script" uid="uid://c8udno25c2ujv" path="res://blocos/bloco_comando/comando.gd" id="1_0o7tt"]
+[ext_resource type="Texture2D" uid="uid://bjj2kommt4s53" path="res://blocos/arrow.png" id="2_m3ybp"]
 
 [node name="Bloco" type="StaticBody2D" groups=["bloco_comando"]]
-script = ExtResource("1_c6wkf")
+script = ExtResource("1_0o7tt")
 
 [node name="BG" type="ColorRect" parent="."]
 offset_right = 32.0

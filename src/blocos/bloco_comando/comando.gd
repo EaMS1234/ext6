@@ -27,10 +27,10 @@ func _draw() -> void:
 			$Seta.rotation_degrees = 90
 			
 		"end":
-			$Seta.texture = load("res://assets/sprites/end.png")
+			$Seta.texture = load("res://blocos/end.png")
 		
 		_:
-			$Seta.texture = load("res://assets/sprites/loop.png")
+			$Seta.texture = load("res://blocos/loop.png")
 			var texto = Label.new()
 			self.add_child(texto)
 			texto.position.y -= 0
