@@ -20,7 +20,12 @@ config/icon="res://icon.svg"
 window/size/viewport_width=480
 window/size/viewport_height=270
 window/size/resizable=false
+window/stretch/mode="viewport"
 window/stretch/aspect="expand"
+
+[global_group]
+
+input_loop=""
 
 [gui]
 

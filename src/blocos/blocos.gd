@@ -94,7 +94,7 @@ func reposicionar_elemento(bloco):
 
 # Função principal
 func _process(_delta: float) -> void:
-	if modo:
+	if modo and get_tree().get_node_count_in_group("input_loop") == 0:
 		# Posiciona o ícone do bloco em baixo do mouse
 		var mouse = get_viewport().get_mouse_position()
 		for bloco in get_tree().get_nodes_in_group("bloco_temporario"):
