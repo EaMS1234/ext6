@@ -31,4 +31,5 @@ rounded = true
 
 [connection signal="focus_exited" from="ColorRect" to="." method="_on_color_rect_focus_exited"]
 [connection signal="mouse_exited" from="ColorRect" to="." method="_on_color_rect_mouse_exited"]
+[connection signal="mouse_exited" from="SpinBox" to="." method="_on_spin_box_mouse_exited"]
 [connection signal="value_changed" from="SpinBox" to="." method="_on_spin_box_value_changed"]

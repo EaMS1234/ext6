@@ -17,3 +17,6 @@ func _on_color_rect_focus_exited() -> void:
 
 func _on_spin_box_value_changed(value: float) -> void:
 	novo_valor.emit(int(value))
+
+func _on_spin_box_mouse_exited() -> void:
+	self.queue_free()
