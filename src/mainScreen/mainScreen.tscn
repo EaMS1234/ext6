@@ -1,22 +1,22 @@
 [gd_scene load_steps=9 format=3 uid="uid://nf02qkt0d7l8"]
 
-[ext_resource type="Script" path="res://scripts/main_screen.gd" id="1_ngi3g"]
-[ext_resource type="Texture2D" uid="uid://ljspp2sm7bt6" path="res://sprites/Tela inicial.png" id="2_byab4"]
-[ext_resource type="Texture2D" uid="uid://cluo74yrxqpl2" path="res://sprites/Logo.png" id="3_b2o6d"]
-[ext_resource type="FontFile" uid="uid://dnpcq4jsrqyb0" path="res://assets/fonts/Baby Boomer.ttf" id="4_c3u6d"]
+[ext_resource type="Script" uid="uid://b7106xn2ffb7x" path="res://mainScreen/main_screen.gd" id="1_7im5e"]
+[ext_resource type="Texture2D" uid="uid://ljspp2sm7bt6" path="res://mainScreen/Tela inicial.png" id="2_5f22l"]
+[ext_resource type="Texture2D" uid="uid://cluo74yrxqpl2" path="res://mainScreen/Logo.png" id="3_fei0e"]
+[ext_resource type="FontFile" uid="uid://dnpcq4jsrqyb0" path="res://assets/fonts/Baby Boomer.ttf" id="4_esebb"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dbufv"]
-texture = ExtResource("2_byab4")
+texture = ExtResource("2_5f22l")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lw5mc"]
-texture = ExtResource("3_b2o6d")
+texture = ExtResource("3_fei0e")
 
 [sub_resource type="Theme" id="Theme_300ok"]
-default_font = ExtResource("4_c3u6d")
+default_font = ExtResource("4_esebb")
 default_font_size = 32
 
 [sub_resource type="Theme" id="Theme_5vuk0"]
-default_font = ExtResource("4_c3u6d")
+default_font = ExtResource("4_esebb")
 default_font_size = 32
 
 [node name="mainScreen" type="Control"]
@@ -26,7 +26,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_ngi3g")
+script = ExtResource("1_7im5e")
 
 [node name="background" type="Panel" parent="."]
 layout_mode = 1
