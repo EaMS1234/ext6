@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://ryohumj4keqy"]
 
 [ext_resource type="Script" uid="uid://cukm2wmlc78k3" path="res://gridController/playerScene/player.gd" id="1_x1fr4"]
-[ext_resource type="Texture2D" uid="uid://bhlsy2kciy7pe" path="res://sprites/player.png" id="2_gyu2u"]
+[ext_resource type="Texture2D" uid="uid://bhlsy2kciy7pe" path="res://gridController/playerScene/player.png" id="2_gyu2u"]
 
 [node name="Player" type="Node2D"]
 script = ExtResource("1_x1fr4")

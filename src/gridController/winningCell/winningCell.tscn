@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cd8c21omhq8nj"]
 
 [ext_resource type="Script" uid="uid://b3x1rkeatfkcq" path="res://gridController/winningCell/winningCell.gd" id="1_chyjv"]
-[ext_resource type="Texture2D" uid="uid://c082mkykpo2t8" path="res://sprites/winningCell.png" id="2_chyjv"]
+[ext_resource type="Texture2D" uid="uid://c082mkykpo2t8" path="res://gridController/winningCell/winningCell.png" id="2_chyjv"]
 
 [node name="winningCell" type="Node2D"]
 script = ExtResource("1_chyjv")

@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bl6dhu2u0l8yy"]
 
-[ext_resource type="Script" uid="uid://kexbgsppcyii" path="res://scripts/movimento_teste.gd" id="1_8q15e"]
+[ext_resource type="Script" uid="uid://kexbgsppcyii" path="res://_debug/movimento_teste.gd" id="1_8q15e"]
 [ext_resource type="Texture2D" uid="uid://cljw5gy61mivx" path="res://icon.svg" id="1_t3njf"]
 [ext_resource type="PackedScene" uid="uid://cqebgx0pjamdx" path="res://blocos/blocos.tscn" id="2_8q15e"]
 
