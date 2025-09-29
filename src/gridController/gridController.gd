@@ -6,6 +6,10 @@ const GRID_HEIGHT = 10
 var original_grid = []
 var backup_grid = null
 
+@export var obstacle_positions : Array[Vector2]
+@export var init_player_pos : Vector2
+@export var win_cell_pos : Vector2
+
 var obstacle_scene = preload("res://gridController/obstacleScene/obstacleScene.tscn")
 var player_scene = preload("res://gridController/playerScene/playerScene.tscn")
 var winning_Cell_Scene = preload("res://gridController/winningCell/winningCell.tscn")
@@ -23,31 +27,12 @@ func generateLevel():
 		for y in range(GRID_HEIGHT):
 			col.append(null)
 		original_grid.append(col)
-	
-	var obstacle_positions = [
-		Vector2(2, 0),
-		Vector2(2, 1),
-		Vector2(2, 2),
-		Vector2(2, 3),
-		Vector2(2, 4),
-		Vector2(2, 5),
-		Vector2(2, 6),
-		Vector2(2, 7),
-		Vector2(5, 3),
-		Vector2(5, 4),
-		Vector2(5, 5),
-		Vector2(5, 6),
-		Vector2(5, 7),
-		Vector2(5, 8),
-		Vector2(5, 9),
-		Vector2(6, 3),
-		Vector2(7, 3),
-	]
+
 	for pos in obstacle_positions:
 		spawn_obstacle(pos)
 	
-	spawn_winningCell(Vector2(7, 5))
-	player = spawn_player(Vector2(0, 0))
+	spawn_winningCell(win_cell_pos)
+	player = spawn_player(init_player_pos)
 func spawn_obstacle(pos: Vector2):
 	var obstacle = obstacle_scene.instantiate()
 	original_grid[pos.x][pos.y] = obstacle

@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://b1arfsmoaopg8"]
+
+[ext_resource type="PackedScene" uid="uid://d283lmnn7guma" path="res://gridController/gridControllerScene.tscn" id="1_hrihy"]
+[ext_resource type="PackedScene" uid="uid://cqebgx0pjamdx" path="res://blocos/blocos.tscn" id="2_4lbap"]
+
+[node name="Main" type="Node2D"]
+
+[node name="GridControllerScene" parent="." instance=ExtResource("1_hrihy")]
+position = Vector2(8, 35)
+obstacle_positions = Array[Vector2]([Vector2(9, 1), Vector2(8, 3), Vector2(7, 4), Vector2(6, 6), Vector2(6, 7), Vector2(4, 4), Vector2(1, 1), Vector2(0, 0), Vector2(0, 3)])
+init_player_pos = Vector2(9, 0)
+win_cell_pos = Vector2(0, 9)
+
+[node name="Control" parent="GridControllerScene" instance=ExtResource("2_4lbap")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = -9.0
+offset_top = -33.0
+offset_right = -9.0
+offset_bottom = -33.0
+grow_horizontal = 1
+grow_vertical = 1
