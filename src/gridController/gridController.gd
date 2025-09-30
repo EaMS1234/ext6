@@ -129,6 +129,8 @@ func on_executar(instrucoes_usadas):
 	
 	
 func on_finalizar(instrucoes_usadas):
+	print(instrucoes_usadas)
+	
 	original_grid = backup_grid
 	var dec = pow(5, (instrucoes_usadas - minInstructions))
 	if dec <= 1:

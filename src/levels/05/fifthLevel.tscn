@@ -8,8 +8,8 @@
 [node name="Main" type="Node2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(239.125, 134.375)
-scale = Vector2(2.9984374, 1.7203122)
+position = Vector2(240, 136)
+scale = Vector2(3, 1.7)
 texture = ExtResource("1_725ul")
 
 [node name="GridControllerScene" parent="." instance=ExtResource("1_b57lj")]
@@ -38,7 +38,7 @@ offset_bottom = 201.0
 text = "Pontucao
 "
 
-[node name="LabelPontuacao2" type="Label" parent="GridControllerScene"]
+[node name="LabelPontuacao" type="Label" parent="GridControllerScene"]
 offset_top = 181.0
 offset_right = 95.0
 offset_bottom = 217.0

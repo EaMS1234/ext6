@@ -13,7 +13,7 @@ func _on_proximo_pressed() -> void:
 		"res://levels/01/firstLevel.tscn":
 			get_tree().change_scene_to_file("res://levels/02/secoundLevel.tscn")
 		
-		"res://levels/02/secondLevel.tscn":
+		"res://levels/02/secoundLevel.tscn":
 			get_tree().change_scene_to_file("res://levels/03/thirdLevel.tscn")
 		
 		"res://levels/03/thirdLevel.tscn":

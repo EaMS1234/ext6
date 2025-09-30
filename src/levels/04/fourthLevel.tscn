@@ -8,8 +8,8 @@
 [node name="MainLevel" type="Node2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(239.625, 134.375)
-scale = Vector2(3.0046875, 1.7203122)
+position = Vector2(240, 136)
+scale = Vector2(3, 1.7)
 texture = ExtResource("1_vvbra")
 
 [node name="GridControllerScene" parent="." instance=ExtResource("1_6fwrw")]
@@ -17,7 +17,7 @@ position = Vector2(8, 35)
 obstacle_positions = Array[Vector2]([Vector2(1, 1), Vector2(2, 1), Vector2(3, 1), Vector2(4, 1), Vector2(5, 1), Vector2(5, 2), Vector2(5, 3), Vector2(5, 4), Vector2(5, 5), Vector2(5, 6), Vector2(7, 1), Vector2(7, 2), Vector2(7, 3), Vector2(7, 4), Vector2(7, 5), Vector2(7, 6), Vector2(7, 7), Vector2(4, 6), Vector2(3, 6), Vector2(2, 6), Vector2(1, 6), Vector2(1, 8), Vector2(3, 8), Vector2(4, 8), Vector2(5, 8), Vector2(6, 8), Vector2(1, 2)])
 fishhook_positions = Array[Vector2]([Vector2(0, 1), Vector2(9, 0), Vector2(1, 7), Vector2(8, 2), Vector2(0, 4), Vector2(1, 4), Vector2(2, 4), Vector2(4, 2)])
 win_cell_pos = Vector2(0, 2)
-minInstructions = 17
+minInstructions = 21
 
 [node name="Pontuação Titulo" type="Label" parent="GridControllerScene"]
 offset_top = 165.0

@@ -8,8 +8,8 @@
 [node name="Main" type="Node2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(239.50002, 135.49998)
-scale = Vector2(3.0062501, 1.6812499)
+position = Vector2(240, 136)
+scale = Vector2(3, 1.7)
 texture = ExtResource("1_i0di3")
 
 [node name="GridControllerScene" parent="." instance=ExtResource("1_s6wjx")]
@@ -18,13 +18,15 @@ obstacle_positions = Array[Vector2]([Vector2(2, 2), Vector2(3, 2), Vector2(4, 2)
 fishhook_positions = Array[Vector2]([Vector2(6, 7), Vector2(5, 5), Vector2(1, 1), Vector2(0, 6)])
 init_player_pos = Vector2(4, 4)
 win_cell_pos = Vector2(0, 4)
-minInstructions = 6
+minInstructions = 13
 
 [node name="Control" parent="GridControllerScene" instance=ExtResource("2_na5vw")]
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
+offset_left = -8.0
 offset_top = -35.0
+offset_right = -8.0
 offset_bottom = -35.0
 grow_horizontal = 1
 grow_vertical = 1

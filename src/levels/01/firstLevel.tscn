@@ -8,8 +8,8 @@
 [node name="Main" type="Node2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(239.62502, 134.375)
-scale = Vector2(3.0046873, 1.7203122)
+position = Vector2(240, 136)
+scale = Vector2(3, 1.7)
 texture = ExtResource("1_nybm2")
 
 [node name="GridControllerScene" parent="." instance=ExtResource("1_mb0va")]
