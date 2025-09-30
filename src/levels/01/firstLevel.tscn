@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://cfh7fdjgkkuls"]
+[gd_scene load_steps=5 format=3 uid="uid://cfh7fdjgkkuls"]
 
 [ext_resource type="PackedScene" uid="uid://d283lmnn7guma" path="res://gridController/gridControllerScene.tscn" id="1_mb0va"]
 [ext_resource type="Texture2D" uid="uid://cr6hopep1r11i" path="res://mainScreen/background.png" id="1_nybm2"]
 [ext_resource type="PackedScene" uid="uid://cqebgx0pjamdx" path="res://blocos/blocos.tscn" id="2_hrey8"]
+[ext_resource type="Script" uid="uid://bkndyibt1b7g4" path="res://mainScene/pontuação.gd" id="4_1hy0h"]
 
 [node name="Main" type="Node2D"]
 
@@ -15,6 +16,7 @@ texture = ExtResource("1_nybm2")
 position = Vector2(8, 35)
 obstacle_positions = Array[Vector2]([Vector2(2, 0), Vector2(2, 1), Vector2(2, 2), Vector2(2, 3), Vector2(2, 4), Vector2(2, 5), Vector2(2, 6), Vector2(3, 6), Vector2(4, 6), Vector2(5, 6), Vector2(7, 6), Vector2(8, 6), Vector2(9, 6)])
 win_cell_pos = Vector2(6, 4)
+minInstructions = 9
 
 [node name="Control" parent="GridControllerScene" instance=ExtResource("2_hrey8")]
 anchors_preset = 0
@@ -26,3 +28,18 @@ offset_right = -8.0
 offset_bottom = -35.0
 grow_horizontal = 1
 grow_vertical = 1
+
+[node name="Pontuação Titulo" type="Label" parent="GridControllerScene"]
+offset_top = 165.0
+offset_right = 73.0
+offset_bottom = 188.0
+text = "Pontucao
+"
+
+[node name="LabelPontuacao" type="Label" parent="GridControllerScene"]
+offset_top = 180.0
+offset_right = 95.0
+offset_bottom = 203.0
+text = "tumtum
+"
+script = ExtResource("4_1hy0h")

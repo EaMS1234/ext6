@@ -230,7 +230,7 @@ func _on_executar_pressed() -> void:
 		
 		# Adiciona as ações à fila
 		else:
-			print(cmd.tipo)
+			#print(cmd.tipo)
 			fila.append(cmd.tipo)
 			fila_blocos.append(cmd)
 			
