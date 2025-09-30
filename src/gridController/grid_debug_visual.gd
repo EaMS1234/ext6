@@ -6,7 +6,7 @@ var timer = randi_range(90, 120)
 func _draw():
 	
 	draw_rect(Rect2(Vector2(0, 0), Vector2(160, 160)), Color(0.467, 0.792, 0.98, 0.086), true)
-	draw_rect(Rect2(Vector2(0, 0), Vector2(161, 160)), Color(0.538, 0.748, 0.945, 0.922), false)
+	draw_rect(Rect2(Vector2(0, 0), Vector2(161, 160)), Color(0.216, 0.501, 0.745, 0.922), false)
 	
 	for i in range(get_parent().GRID_WIDTH):
 		for j in range(get_parent().GRID_HEIGHT):

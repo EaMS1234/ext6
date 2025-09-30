@@ -1,11 +1,48 @@
-[gd_scene load_steps=3 format=3 uid="uid://ryohumj4keqy"]
+[gd_scene load_steps=8 format=3 uid="uid://ryohumj4keqy"]
 
 [ext_resource type="Script" uid="uid://cukm2wmlc78k3" path="res://gridController/playerScene/player.gd" id="1_x1fr4"]
-[ext_resource type="Texture2D" uid="uid://bhlsy2kciy7pe" path="res://gridController/playerScene/player.png" id="2_gyu2u"]
+[ext_resource type="Texture2D" uid="uid://vkw6rd7a2jrm" path="res://gridController/playerScene/playerSheet.png" id="2_eatfn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gdggm"]
+atlas = ExtResource("2_eatfn")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q0mak"]
+atlas = ExtResource("2_eatfn")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0q2oa"]
+atlas = ExtResource("2_eatfn")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l4xv8"]
+atlas = ExtResource("2_eatfn")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ffy2q"]
+animations = [{
+"frames": [{
+"duration": 4.0,
+"texture": SubResource("AtlasTexture_gdggm")
+}, {
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_q0mak")
+}, {
+"duration": 4.0,
+"texture": SubResource("AtlasTexture_0q2oa")
+}, {
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_l4xv8")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Player" type="Node2D"]
 script = ExtResource("1_x1fr4")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(8, 8)
-texture = ExtResource("2_gyu2u")
+sprite_frames = SubResource("SpriteFrames_ffy2q")
+autoplay = "default"
