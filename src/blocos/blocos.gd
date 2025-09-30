@@ -172,6 +172,7 @@ func _on_executar_pressed() -> void:
 	
 	# Fila de ações a serem emitidas
 	var fila = []
+	var fila_blocos = []
 	
 	var stack_pos = []  # Marca a posição inicial de um loop
 	var stack_qtd = []  # Marca a quantidade de repetições do loop
@@ -202,6 +203,7 @@ func _on_executar_pressed() -> void:
 		else:
 			print(cmd.tipo)
 			fila.append(cmd.tipo)
+			fila_blocos.append(cmd)
 			
 		i += 1
 	
@@ -209,7 +211,13 @@ func _on_executar_pressed() -> void:
 	while not fila.is_empty():
 		mover.emit(fila.front())
 		fila.pop_front()
+		
+		fila_blocos.front().get_child(0).color = Color(0.0, 1.0, 1.0, 0.333)
+		
 		await get_tree().create_timer(delay / 1000.0).timeout
+		
+		fila_blocos.front().get_child(0).color = Color(0.0, 0.0, 0.0, 0.0)
+		fila_blocos.pop_front()
 	
 	finalizar.emit()
 	

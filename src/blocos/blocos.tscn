@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://cqebgx0pjamdx"]
+[gd_scene load_steps=5 format=3 uid="uid://cqebgx0pjamdx"]
 
 [ext_resource type="Script" uid="uid://cmhp5u4yf3y08" path="res://blocos/blocos.gd" id="1_3p2qg"]
+[ext_resource type="Texture2D" uid="uid://bjj2kommt4s53" path="res://blocos/arrow.png" id="2_enj3t"]
+[ext_resource type="Texture2D" uid="uid://whkpwgyrypim" path="res://blocos/loop.png" id="3_52xbf"]
+[ext_resource type="Texture2D" uid="uid://dk4yowtus6ecb" path="res://blocos/end.png" id="4_qsxi0"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -13,68 +16,70 @@ script = ExtResource("1_3p2qg")
 
 [node name="Cima" type="Button" parent="."]
 layout_mode = 0
-offset_left = 176.0
-offset_top = 8.0
-offset_right = 264.0
-offset_bottom = 39.0
-text = "Cima"
+offset_left = 208.0
+offset_top = 32.0
+offset_right = 232.0
+offset_bottom = 56.0
+rotation = 4.712389
+icon = ExtResource("2_enj3t")
 
 [node name="Baixo" type="Button" parent="."]
 layout_mode = 0
-offset_left = 176.0
-offset_top = 40.0
-offset_right = 264.0
-offset_bottom = 71.0
-text = "Baixo"
+offset_left = 264.0
+offset_top = 8.0
+offset_right = 288.0
+offset_bottom = 32.0
+rotation = 1.5707964
+icon = ExtResource("2_enj3t")
 
 [node name="Esquerda" type="Button" parent="."]
 layout_mode = 0
-offset_left = 176.0
-offset_top = 72.0
-offset_right = 264.0
-offset_bottom = 103.0
-text = "Esquerda
-"
+offset_left = 232.0
+offset_top = 64.0
+offset_right = 256.0
+offset_bottom = 88.0
+rotation = 3.1415927
+icon = ExtResource("2_enj3t")
 
 [node name="Direita" type="Button" parent="."]
 layout_mode = 0
-offset_left = 176.0
-offset_top = 104.0
+offset_left = 240.0
+offset_top = 40.0
 offset_right = 264.0
-offset_bottom = 135.0
-text = "Direita"
+offset_bottom = 64.0
+icon = ExtResource("2_enj3t")
 
 [node name="Remover" type="Button" parent="."]
 layout_mode = 0
-offset_left = 176.0
-offset_top = 200.0
-offset_right = 264.0
-offset_bottom = 231.0
+offset_left = 200.0
+offset_top = 104.0
+offset_right = 272.0
+offset_bottom = 135.0
 text = "Remover"
 
 [node name="Executar" type="Button" parent="."]
 layout_mode = 0
-offset_left = 176.0
-offset_top = 232.0
-offset_right = 264.0
-offset_bottom = 263.0
+offset_left = 200.0
+offset_top = 144.0
+offset_right = 272.0
+offset_bottom = 175.0
 text = "Executar"
 
 [node name="Loop" type="Button" parent="."]
 layout_mode = 0
-offset_left = 176.0
-offset_top = 136.0
-offset_right = 264.0
-offset_bottom = 167.0
-text = "Loop"
+offset_left = 208.0
+offset_top = 72.0
+offset_right = 232.0
+offset_bottom = 96.0
+icon = ExtResource("3_52xbf")
 
 [node name="End" type="Button" parent="."]
 layout_mode = 0
-offset_left = 176.0
-offset_top = 168.0
+offset_left = 240.0
+offset_top = 72.0
 offset_right = 264.0
-offset_bottom = 199.0
-text = "Fim"
+offset_bottom = 96.0
+icon = ExtResource("4_qsxi0")
 
 [node name="Label" type="Label" parent="."]
 visible = false
