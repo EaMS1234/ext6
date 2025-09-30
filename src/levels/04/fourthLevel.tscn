@@ -14,6 +14,26 @@ texture = ExtResource("1_vvbra")
 
 [node name="GridControllerScene" parent="." instance=ExtResource("1_6fwrw")]
 position = Vector2(8, 35)
+obstacle_positions = Array[Vector2]([Vector2(1, 1), Vector2(2, 1), Vector2(3, 1), Vector2(4, 1), Vector2(5, 1), Vector2(5, 2), Vector2(5, 3), Vector2(5, 4), Vector2(5, 5), Vector2(5, 6), Vector2(7, 1), Vector2(7, 2), Vector2(7, 3), Vector2(7, 4), Vector2(7, 5), Vector2(7, 6), Vector2(7, 7), Vector2(4, 6), Vector2(3, 6), Vector2(2, 6), Vector2(1, 6), Vector2(1, 8), Vector2(3, 8), Vector2(4, 8), Vector2(5, 8), Vector2(6, 8), Vector2(1, 2)])
+fishhook_positions = Array[Vector2]([Vector2(0, 1), Vector2(9, 0), Vector2(1, 7), Vector2(8, 2), Vector2(0, 4), Vector2(1, 4), Vector2(2, 4), Vector2(4, 2)])
+win_cell_pos = Vector2(0, 2)
+minInstructions = 17
+
+[node name="Pontuação Titulo" type="Label" parent="GridControllerScene"]
+offset_top = 165.0
+offset_right = 73.0
+offset_bottom = 201.0
+text = "Pontucao
+"
+
+[node name="LabelPontuacao" type="Label" parent="GridControllerScene"]
+offset_top = 180.0
+offset_right = 95.0
+offset_bottom = 216.0
+text = "lerolero
+
+"
+script = ExtResource("4_nl40u")
 
 [node name="Control" parent="GridControllerScene" instance=ExtResource("2_pkcbg")]
 anchors_preset = 0
@@ -25,20 +45,3 @@ offset_right = -8.0
 offset_bottom = -35.0
 grow_horizontal = 1
 grow_vertical = 1
-
-[node name="Pontuação Titulo" type="Label" parent="."]
-offset_left = 8.0
-offset_top = 200.0
-offset_right = 81.0
-offset_bottom = 223.0
-text = "Pontucao
-"
-
-[node name="LabelPontuacao" type="Label" parent="."]
-offset_left = 8.0
-offset_top = 215.0
-offset_right = 103.0
-offset_bottom = 238.0
-text = "tumtum
-"
-script = ExtResource("4_nl40u")

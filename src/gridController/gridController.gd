@@ -106,6 +106,7 @@ func updatePlayerPosition(old_pos, new_position):
 			mostrar_pontuacao_perdida(new_position.x * 16, new_position.y * 16, 1000)	
 		elif original_grid[new_position.x][new_position.y].type == "fishhook":
 			#Perder pontos e voltar posição
+			venceu = false
 			mostrar_pontuacao_perdida(new_position.x * 16, new_position.y * 16, 2000)
 			new_position = playerOriginalPos
 			
@@ -137,7 +138,7 @@ func on_finalizar(instrucoes_usadas):
 		
 	if venceu == false:
 		updatePlayerPosition(player.grid_pos, playerOriginalPos)
-		mostrar_pontuacao_perdida(0, 0, 10000)	
+		mostrar_pontuacao_perdida(player.position.x - 16, player.position.y, 10000)	
 	else:
 		var instancia = vitoria.instantiate()
 		$Control.fila = []

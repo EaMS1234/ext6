@@ -15,8 +15,10 @@ texture = ExtResource("1_i0di3")
 [node name="GridControllerScene" parent="." instance=ExtResource("1_s6wjx")]
 position = Vector2(8, 35)
 obstacle_positions = Array[Vector2]([Vector2(2, 2), Vector2(3, 2), Vector2(4, 2), Vector2(5, 2), Vector2(6, 2), Vector2(2, 3), Vector2(6, 3), Vector2(2, 4), Vector2(2, 5), Vector2(2, 6), Vector2(3, 6), Vector2(4, 6), Vector2(5, 6), Vector2(6, 6), Vector2(6, 5)])
+fishhook_positions = Array[Vector2]([Vector2(6, 7), Vector2(5, 5), Vector2(1, 1), Vector2(0, 6)])
 init_player_pos = Vector2(4, 4)
 win_cell_pos = Vector2(0, 4)
+minInstructions = 6
 
 [node name="Control" parent="GridControllerScene" instance=ExtResource("2_na5vw")]
 anchors_preset = 0
@@ -30,14 +32,15 @@ grow_vertical = 1
 [node name="Pontuação Titulo" type="Label" parent="GridControllerScene"]
 offset_top = 165.0
 offset_right = 73.0
-offset_bottom = 188.0
+offset_bottom = 201.0
 text = "Pontucao
 "
 
 [node name="LabelPontuacao" type="Label" parent="GridControllerScene"]
 offset_top = 180.0
 offset_right = 95.0
-offset_bottom = 203.0
-text = "tumtum
+offset_bottom = 216.0
+text = "lerolero
+
 "
 script = ExtResource("4_fnpcf")
