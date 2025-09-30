@@ -1,9 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://cmeww0d7jev38"]
+[gd_scene load_steps=4 format=3 uid="uid://cmeww0d7jev38"]
 
+[ext_resource type="Texture2D" uid="uid://cr6hopep1r11i" path="res://mainScreen/background.png" id="1_v3hdg"]
 [ext_resource type="PackedScene" uid="uid://d283lmnn7guma" path="res://gridController/gridControllerScene.tscn" id="1_w2twt"]
 [ext_resource type="PackedScene" uid="uid://cqebgx0pjamdx" path="res://blocos/blocos.tscn" id="3_hhxvm"]
 
 [node name="MainScene" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(239.5, 134)
+scale = Vector2(2.99375, 1.6875)
+texture = ExtResource("1_v3hdg")
 
 [node name="GridControllerScene" parent="." instance=ExtResource("1_w2twt")]
 position = Vector2(8, 35)
