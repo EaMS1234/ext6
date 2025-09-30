@@ -17,6 +17,7 @@ var winning_Cell_Scene = preload("res://gridController/winningCell/winningCell.t
 var fishhook_Scene = preload("res://gridController/fishhookScene/fishhookScene.tscn")
 var vitoria = preload("res://vitoria/vitoria.tscn")
 var player = null
+var playerOriginalPos = Vector2(0, 0)
 
 func _ready():
 	var control = $Control  
@@ -109,11 +110,12 @@ func updatePlayerPosition(old_pos, new_position):
 	
 func on_executar():
 	backup_grid = original_grid
+	playerOriginalPos = player.grid_pos
 	
 func on_finalizar():
 	#contalizar pontuação e reiniciar posições (não está funcionando ainda)
 	original_grid = backup_grid
 	
 	if get_tree().get_node_count_in_group("tela_vitoria") == 0:
-		updatePlayerPosition(player.grid_pos, Vector2(0, 0))
+		updatePlayerPosition(player.grid_pos, playerOriginalPos)
 	
