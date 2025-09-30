@@ -7,12 +7,14 @@ var original_grid = []
 var backup_grid = null
 
 @export var obstacle_positions : Array[Vector2]
+@export var fishhook_positions : Array[Vector2]
 @export var init_player_pos : Vector2
 @export var win_cell_pos : Vector2
 
 var obstacle_scene = preload("res://gridController/obstacleScene/obstacleScene.tscn")
 var player_scene = preload("res://gridController/playerScene/playerScene.tscn")
 var winning_Cell_Scene = preload("res://gridController/winningCell/winningCell.tscn")
+var fishhook_Scene = preload("res://gridController/fishhookScene/fishhookScene.tscn")
 var player = null
 
 func _ready():
@@ -30,7 +32,10 @@ func generateLevel():
 
 	for pos in obstacle_positions:
 		spawn_obstacle(pos)
-	
+		
+	for pos in fishhook_positions:
+		spawn_fishhook(pos)
+
 	spawn_winningCell(win_cell_pos)
 	player = spawn_player(init_player_pos)
 func spawn_obstacle(pos: Vector2):
@@ -52,6 +57,12 @@ func spawn_winningCell(pos: Vector2):
 	original_grid[pos.x][pos.y] = winningCell
 	add_child(winningCell)
 	winningCell.setup(pos, self)
+
+func spawn_fishhook(pos: Vector2):
+	var fishhook = fishhook_Scene.instantiate()
+	original_grid[pos.x][pos.y] = fishhook
+	add_child(fishhook)
+	fishhook.setup(pos, self)
 
 
 func is_cell_valid(pos: Vector2) -> bool:

@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://dq5do406wsr03"]
+
+[ext_resource type="Script" uid="uid://tnf3gfxcgyy6" path="res://gridController/fishhookScene/fishhook.gd" id="1_1llk2"]
+[ext_resource type="Texture2D" uid="uid://c3a5kt56e10le" path="res://gridController/fishhookScene/fishhook.png" id="2_xe8f3"]
+
+[node name="Fishhook" type="Node2D"]
+script = ExtResource("1_1llk2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(8, 8)
+texture = ExtResource("2_xe8f3")
