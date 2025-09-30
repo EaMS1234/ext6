@@ -14,13 +14,11 @@ func _draw():
 			
 func _process(delta: float) -> void:
 	count+=1
-	print(count)
-	
 	if count == timer:
 		print("lerolero")
 		count = 0
-		timer = randi_range(90, 120)
-		for i in range(0, randi_range(3, 6)):
+		timer = randi_range(30, 45)
+		for i in range(0, randi_range(1, 2)):
 			spawn_bubble()
 			
 func spawn_bubble():

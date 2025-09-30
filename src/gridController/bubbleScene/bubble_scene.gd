@@ -6,7 +6,6 @@ var opacity = 100
 func _process(delta: float) -> void:
 	moveSpeed = 30 - (scale.x * 10)
 	position.y -= moveSpeed * delta
-	print(position.y)
 	if position.y < 20:
 		despawn()
 
