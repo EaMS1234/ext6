@@ -1,0 +1,48 @@
+[gd_scene load_steps=6 format=3 uid="uid://r68ei8l4goh5"]
+
+[ext_resource type="Texture2D" uid="uid://ljspp2sm7bt6" path="res://mainScreen/Tela inicial.png" id="1_cg7gg"]
+[ext_resource type="Script" uid="uid://dcpb3cdt7xjm6" path="res://final/endgame.gd" id="1_ur4vw"]
+[ext_resource type="Texture2D" uid="uid://cluo74yrxqpl2" path="res://mainScreen/Logo.png" id="2_5553c"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_cg7gg"]
+font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_5553c"]
+font_size = 72
+
+[node name="Endgame" type="Node2D"]
+script = ExtResource("1_ur4vw")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(239.99997, 136)
+scale = Vector2(0.99999994, 1.0074074)
+texture = ExtResource("1_cg7gg")
+
+[node name="Label" type="Label" parent="."]
+offset_top = 8.0
+offset_right = 480.0
+offset_bottom = 27.0
+text = "Obrigado por jogar!"
+label_settings = SubResource("LabelSettings_cg7gg")
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="."]
+offset_top = 160.0
+offset_right = 480.0
+offset_bottom = 170.0
+text = "total de pontos:"
+horizontal_alignment = 1
+
+[node name="Pontos" type="Label" parent="."]
+offset_top = 176.0
+offset_right = 480.0
+offset_bottom = 218.0
+text = "69420"
+label_settings = SubResource("LabelSettings_5553c")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(256.00003, 112)
+scale = Vector2(0.7018519, 0.70185184)
+texture = ExtResource("2_5553c")
