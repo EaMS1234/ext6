@@ -20,10 +20,8 @@ var fishhook_Scene = preload("res://gridController/fishhookScene/fishhookScene.t
 var vitoria = preload("res://vitoria/vitoria.tscn")
 var player = null
 var playerOriginalPos = Vector2(0, 0)
-var label_pontuacao = null
 
 func _ready():
-	label_pontuacao = get_parent().get_node("LabelPontuacao")
 	var control = $Control  
 	control.connect("executar", on_executar)
 	control.connect("finalizar", on_finalizar)
@@ -99,20 +97,20 @@ func updatePlayerPosition(old_pos, new_position):
 	if (!is_cell_empty(new_position)):
 		print(original_grid[new_position.x][new_position.y].name)
 		if original_grid[new_position.x][new_position.y].type == "winningCell":
-			print("VENCEU")
 			var instancia = vitoria.instantiate()
+			vitoria.pontos = $LabelPontuacao.pontuação
 			$Control.fila = []
 			get_parent().add_child(instancia)
 			
 		elif original_grid[new_position.x][new_position.y].type == "obstacle":
 			#Perder pontos e voltar posição
 			new_position = old_pos
-			label_pontuacao.removerPontos(100)
+			$LabelPontuacao.removerPontos(200)
 		elif original_grid[new_position.x][new_position.y].type == "fishhook":
 			#Perder pontos e voltar posição
 			new_position = playerOriginalPos
-			label_pontuacao.removerPontos(1000)
-			
+			$LabelPontuacao.removerPontos(1000)
+
 	player.setup(new_position, self, $Control)
 	
 func on_executar():
@@ -120,7 +118,7 @@ func on_executar():
 	playerOriginalPos = player.grid_pos
 	
 func on_finalizar():
-	label_pontuacao.removerPontos(1000)
+	$LabelPontuacao.removerPontos(1000)
 	original_grid = backup_grid
 	
 	if get_tree().get_node_count_in_group("tela_vitoria") == 0:
