@@ -66,12 +66,12 @@ func add_elemento(acao):
 
 # Remove um comando da lista
 func rm_elemento(pos_fila):
-	if get_tree().get_node_count_in_group("bloco_comando") > 0:
+	if len($InputList.get_children()) > 0:
 		if pos_fila < 0:
-			pos_fila = get_tree().get_node_count_in_group("bloco_comando")
+			pos_fila = len($InputList.get_children())
 		
 		# Atualiza a posição dos blocos restantes
-		for cmd in get_tree().get_nodes_in_group("bloco_comando"):
+		for cmd in $InputList.get_children():
 			if cmd.pos_fila == pos_fila:
 				cmd.queue_free()
 			
@@ -79,6 +79,8 @@ func rm_elemento(pos_fila):
 				cmd.pos_fila -= 1
 				
 				posicionar_elemento(cmd)
+	
+	atualizar_botoes()
 
 # Posiciona um bloco de comando na visualização
 func posicionar_elemento(bloco):
@@ -93,29 +95,35 @@ func reposicionar_elemento(bloco):
 		if cmd.pos_fila >= bloco.pos_fila:
 			cmd.pos_fila += 1
 			posicionar_elemento(cmd)
+	
+	atualizar_botoes()
 
+func atualizar_botoes():
+	if len($InputList.get_children()) == 0:
+		$Remover.disabled = true
+		$Executar.disabled = true
+		
+		for node in get_tree().get_nodes_in_group("botoes_adicionar"):
+			node.disabled = false
+		
+	elif len($InputList.get_children()) <= 34:
+		for node in self.get_children():
+			if node is Button:
+				node.disabled = false
+		
+	else:
+		$Remover.disabled = false
+		$Executar.disabled = false
+		
+		for node in get_tree().get_nodes_in_group("botoes_adicionar"):
+			node.disabled = true
+
+
+func _draw() -> void:
+	atualizar_botoes()
 
 # Função principal
 func _process(_delta: float) -> void:
-	#if len($InputList.get_children()) == 0:
-		#$Remover.disabled = true
-		#$Executar.disabled = true
-		#
-		#for node in get_tree().get_nodes_in_group("botoes_adicionar"):
-			#node.disabled = false
-		#
-	#elif len($InputList.get_children()) <= 34:
-		#for node in self.get_children():
-			#if node is Button:
-				#node.disabled = false
-		#
-	#else:
-		#$Remover.disabled = false
-		#$Executar.disabled = false
-		#
-		#for node in get_tree().get_nodes_in_group("botoes_adicionar"):
-			#node.disabled = true
-	
 	if modo and get_tree().get_node_count_in_group("input_loop") == 0:
 		# Posiciona o ícone do bloco em baixo do mouse
 		var mouse = get_viewport().get_mouse_position()
@@ -246,15 +254,14 @@ func _on_executar_pressed() -> void:
 	for node in get_tree().get_nodes_in_group("bloco_comando"):
 		node.set_process(true)
 	
-	for node in self.get_children():
-		node.set_process_input(true)
-		
-		if node is Button:
-			# node.mouse_filter = Control.MOUSE_FILTER_IGNORE
-			node.disabled = false
+	atualizar_botoes()
 
 func _on_remover_pressed() -> void:
 	rm_elemento(-1)
+	
+	if len($InputList.get_children()) == 1:
+		$Remover.disabled = true
+		$Executar.disabled = true
 
 
 # Os métodos e atributos abaixo verificam se o mouse está na área correta
