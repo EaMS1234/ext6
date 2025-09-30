@@ -233,20 +233,20 @@ func _on_executar_pressed() -> void:
 			fila_blocos.append(cmd)
 			
 		i += 1
-	
 	# Emite cada ação da fila com um delay
+	var list = []	
 	while not fila.is_empty():
 		mover.emit(fila.front())
-		fila.pop_front()
-		
+		fila.pop_front()	
 		fila_blocos.front().get_child(0).color = Color(0.0, 1.0, 1.0, 0.333)
 		
 		await get_tree().create_timer(delay / 1000.0).timeout
 		
 		fila_blocos.front().get_child(0).color = Color(0.0, 0.0, 0.0, 0.0)
-		fila_blocos.pop_front()
-	
-	finalizar.emit()
+		list.append(fila_blocos.pop_front())
+		
+	list.clear()	
+	finalizar.emit(len($InputList.get_children()))
 	
 	# Re-ativa as funções do jogo
 	for node in get_tree().get_nodes_in_group("bloco_comando"):

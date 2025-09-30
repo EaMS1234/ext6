@@ -129,20 +129,18 @@ func on_executar(instrucoes_usadas):
 	backup_grid = original_grid
 	playerOriginalPos = player.grid_pos
 	
+	
+func on_finalizar(instrucoes_usadas):
 	var dec = pow(5, (instrucoes_usadas - minInstructions))
-	
-	if dec == 1:
+	if dec < 1:
 		dec = 0
-	
-	$LabelPontuacao.removerPontos(dec)
-	
-func on_finalizar():
+	else:
+		mostrar_pontuacao_perdida(20, 200, dec)
+
 	original_grid = backup_grid
 	if get_tree().get_node_count_in_group("tela_vitoria") == 0:
 		updatePlayerPosition(player.grid_pos, playerOriginalPos)
 		mostrar_pontuacao_perdida(0, 0, 10000)	
-		
-	
 	else:
 		$LabelPontuacao.removerPontos(1000)
 	

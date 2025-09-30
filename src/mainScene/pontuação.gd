@@ -7,18 +7,21 @@ func _process(delta: float) -> void:
 	decrementar()
 
 func removerPontos(pontos):
-	pontosDecrementar += pontos
+	pontosDecrementar += int(pontos)
 	
 func decrementar():
-	if pontosDecrementar > 10000:
-		pontuação -= int(1000 * 3.0)
-		pontosDecrementar-= int(1000 * 3.0)
+	if pontosDecrementar > 100000:
+		pontuação -= int(pontosDecrementar/10)
+		pontosDecrementar-= int(pontosDecrementar/10)
+	elif pontosDecrementar > 10000:
+		pontuação -= int(1000 * 5.0)
+		pontosDecrementar-= int(1000 * 5.0)
 	elif pontosDecrementar > 1000:
-		pontuação -= int(100 * 3.0)
-		pontosDecrementar-= int(100 * 3.0)
+		pontuação -= int(100 * 5.0)
+		pontosDecrementar-= int(100 * 5.0)
 	elif pontosDecrementar > 100:
-		pontuação -= int(10 * 3.0)
-		pontosDecrementar-= int(10 * 3.0)
+		pontuação -= int(10 * 5.0)
+		pontosDecrementar-= int(10 * 5.0)
 	
 func adicionarPontos(pontos):
 	pontuação += pontos

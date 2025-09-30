@@ -6,7 +6,7 @@ func _ready():
 	
 
 func _process(delta: float) -> void:
-	self.text = str(pontuacaoPerdida)
+	self.text = str(int(pontuacaoPerdida))
 	self.position.y -= 0.5
 	self.position.x += 0.5
 	self.scale.x -= 0.01
