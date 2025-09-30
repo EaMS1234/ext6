@@ -5,7 +5,7 @@ const GRID_HEIGHT = 10
 
 var original_grid = []
 var backup_grid = null
-
+var venceu = false
 
 @export var obstacle_positions : Array[Vector2]
 @export var fishhook_positions : Array[Vector2]
@@ -99,10 +99,7 @@ func updatePlayerPosition(old_pos, new_position):
 	if (!is_cell_empty(new_position)):
 		print(original_grid[new_position.x][new_position.y].name)
 		if original_grid[new_position.x][new_position.y].type == "winningCell":
-			var instancia = vitoria.instantiate()
-			instancia.pontos = $LabelPontuacao.pontuação
-			$Control.fila = []
-			get_parent().add_child(instancia)
+			venceu = true
 		elif original_grid[new_position.x][new_position.y].type == "obstacle":
 			#Perder pontos e voltar posição
 			new_position = old_pos
@@ -131,16 +128,18 @@ func on_executar(instrucoes_usadas):
 	
 	
 func on_finalizar(instrucoes_usadas):
+	original_grid = backup_grid
 	var dec = pow(5, (instrucoes_usadas - minInstructions))
-	if dec < 1:
+	if dec <= 1:
 		dec = 0
 	else:
 		mostrar_pontuacao_perdida(20, 200, dec)
-
-	original_grid = backup_grid
-	if get_tree().get_node_count_in_group("tela_vitoria") == 0:
+		
+	if venceu == false:
 		updatePlayerPosition(player.grid_pos, playerOriginalPos)
 		mostrar_pontuacao_perdida(0, 0, 10000)	
 	else:
-		$LabelPontuacao.removerPontos(1000)
-	
+		var instancia = vitoria.instantiate()
+		$Control.fila = []
+		get_parent().add_child(instancia)
+		instancia.pontos = $LabelPontuacao.pontuaçãoVerdadeira
