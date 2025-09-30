@@ -1,6 +1,6 @@
 extends Control
 
-signal executar()
+signal executar(num_instrucoes_usado)
 signal mover(dir)
 signal finalizar()
 
@@ -183,7 +183,7 @@ func _on_end_button_down() -> void:
 
 # Funcionalidade dos botões "remover" e "executar"
 func _on_executar_pressed() -> void:
-	executar.emit()
+	executar.emit(len($InputList.get_children()))
 	
 	# Bloqueia as funções do jogo
 	for node in get_tree().get_nodes_in_group("bloco_comando"):
@@ -208,8 +208,6 @@ func _on_executar_pressed() -> void:
 	
 	var i = 0
 	while i < len(lista):
-		print("Passo ", i)
-		
 		var cmd = lista[i]
 		
 		# Início de loop
@@ -262,6 +260,10 @@ func _on_remover_pressed() -> void:
 	if len($InputList.get_children()) == 1:
 		$Remover.disabled = true
 		$Executar.disabled = true
+	
+	if len($InputList.get_children()) == 35:
+		for node in get_tree().get_nodes_in_group("botoes_adicionar"):
+			node.disabled = false
 
 
 # Os métodos e atributos abaixo verificam se o mouse está na área correta

@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://d283lmnn7guma" path="res://gridController/gridControllerScene.tscn" id="1_mb0va"]
 [ext_resource type="Texture2D" uid="uid://cr6hopep1r11i" path="res://mainScreen/background.png" id="1_nybm2"]
 [ext_resource type="PackedScene" uid="uid://cqebgx0pjamdx" path="res://blocos/blocos.tscn" id="2_hrey8"]
-[ext_resource type="Script" uid="uid://bkndyibt1b7g4" path="res://mainScene/pontuação.gd" id="4_1hy0h"]
+[ext_resource type="Script" path="res://mainScene/pontuação.gd" id="4_1hy0h"]
 
 [node name="Main" type="Node2D"]
 

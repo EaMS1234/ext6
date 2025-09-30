@@ -98,7 +98,7 @@ func updatePlayerPosition(old_pos, new_position):
 		print(original_grid[new_position.x][new_position.y].name)
 		if original_grid[new_position.x][new_position.y].type == "winningCell":
 			var instancia = vitoria.instantiate()
-			vitoria.pontos = $LabelPontuacao.pontuação
+			instancia.pontos = $LabelPontuacao.pontuação
 			$Control.fila = []
 			get_parent().add_child(instancia)
 			
@@ -113,14 +113,23 @@ func updatePlayerPosition(old_pos, new_position):
 
 	player.setup(new_position, self, $Control)
 	
-func on_executar():
+func on_executar(instrucoes_usadas):
 	backup_grid = original_grid
 	playerOriginalPos = player.grid_pos
 	
+	var dec = pow(5, (instrucoes_usadas - minInstructions))
+	
+	if dec == 1:
+		dec = 0
+	
+	$LabelPontuacao.removerPontos(dec)
+	
 func on_finalizar():
-	$LabelPontuacao.removerPontos(1000)
 	original_grid = backup_grid
 	
 	if get_tree().get_node_count_in_group("tela_vitoria") == 0:
 		updatePlayerPosition(player.grid_pos, playerOriginalPos)
+	
+	else:
+		$LabelPontuacao.removerPontos(1000)
 	
