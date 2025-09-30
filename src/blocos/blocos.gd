@@ -54,6 +54,7 @@ func add_elemento(acao):
 				bloco_temp.add_child(num)
 				num.position.x -= 24
 				num.position.y -= 24
+				num.scale *= 1.25
 				num.text = acao
 		
 		# Define o tipo do bloco

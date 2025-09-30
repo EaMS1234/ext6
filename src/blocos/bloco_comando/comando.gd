@@ -40,7 +40,7 @@ func _draw() -> void:
 			texto.add_to_group("label_loop")
 			# texto.position.y -= 0
 			# texto.position.x -= 0
-			texto.scale *= 0.75
+			texto.scale *= 1
 			texto.text = tipo
 			
 

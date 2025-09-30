@@ -91,7 +91,7 @@ offset_left = 280.0
 offset_top = 8.0
 offset_right = 480.0
 offset_bottom = 263.0
-color = Color(0.13803378, 0.13803375, 0.13803375, 1)
+color = Color(0.13725491, 0.13725491, 0.13725491, 0.29803923)
 
 [connection signal="button_down" from="Cima" to="." method="_on_cima_button_down"]
 [connection signal="button_down" from="Baixo" to="." method="_on_baixo_button_down"]
