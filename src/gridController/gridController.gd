@@ -15,6 +15,7 @@ var obstacle_scene = preload("res://gridController/obstacleScene/obstacleScene.t
 var player_scene = preload("res://gridController/playerScene/playerScene.tscn")
 var winning_Cell_Scene = preload("res://gridController/winningCell/winningCell.tscn")
 var fishhook_Scene = preload("res://gridController/fishhookScene/fishhookScene.tscn")
+var vitoria = preload("res://vitoria/vitoria.tscn")
 var player = null
 
 func _ready():
@@ -94,6 +95,13 @@ func updatePlayerPosition(old_pos, new_position):
 		print(original_grid[new_position.x][new_position.y].name)
 		if original_grid[new_position.x][new_position.y].type == "winningCell":
 			print("VENCEU")
+			
+			var instancia = vitoria.instantiate()
+			
+			$Control.fila = []
+			
+			get_parent().add_child(instancia)
+			
 		elif original_grid[new_position.x][new_position.y].type == "obstacle":
 			#Perder pontos e voltar posição
 			new_position = old_pos
@@ -105,5 +113,7 @@ func on_executar():
 func on_finalizar():
 	#contalizar pontuação e reiniciar posições (não está funcionando ainda)
 	original_grid = backup_grid
-	updatePlayerPosition(player.grid_pos, Vector2(0, 0))
+	
+	if get_tree().get_node_count_in_group("tela_vitoria") == 0:
+		updatePlayerPosition(player.grid_pos, Vector2(0, 0))
 	

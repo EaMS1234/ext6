@@ -19,6 +19,8 @@ var sobre_bloco = null
 # O modo do mouse define se o jogador está segurando um bloco ou não.
 var modo = false
 
+@export var fila = []
+
 # Adiciona um bloco temporário à cena e define o modo do mouse. Blocos
 # temporários são "fantasmas" que são arrastados pelo mouse.
 func add_elemento(acao):
@@ -95,24 +97,24 @@ func reposicionar_elemento(bloco):
 
 # Função principal
 func _process(_delta: float) -> void:
-	if len($InputList.get_children()) == 0:
-		$Remover.disabled = true
-		$Executar.disabled = true
-		
-		for node in get_tree().get_nodes_in_group("botoes_adicionar"):
-			node.disabled = false
-		
-	elif len($InputList.get_children()) <= 34:
-		for node in self.get_children():
-			if node is Button:
-				node.disabled = false
-		
-	else:
-		$Remover.disabled = false
-		$Executar.disabled = false
-		
-		for node in get_tree().get_nodes_in_group("botoes_adicionar"):
-			node.disabled = true
+	#if len($InputList.get_children()) == 0:
+		#$Remover.disabled = true
+		#$Executar.disabled = true
+		#
+		#for node in get_tree().get_nodes_in_group("botoes_adicionar"):
+			#node.disabled = false
+		#
+	#elif len($InputList.get_children()) <= 34:
+		#for node in self.get_children():
+			#if node is Button:
+				#node.disabled = false
+		#
+	#else:
+		#$Remover.disabled = false
+		#$Executar.disabled = false
+		#
+		#for node in get_tree().get_nodes_in_group("botoes_adicionar"):
+			#node.disabled = true
 	
 	if modo and get_tree().get_node_count_in_group("input_loop") == 0:
 		# Posiciona o ícone do bloco em baixo do mouse
@@ -190,7 +192,7 @@ func _on_executar_pressed() -> void:
 	lista.sort_custom(func(a, b): return a.pos_fila < b.pos_fila)
 	
 	# Fila de ações a serem emitidas
-	var fila = []
+	fila = []
 	var fila_blocos = []
 	
 	var stack_pos = []  # Marca a posição inicial de um loop
