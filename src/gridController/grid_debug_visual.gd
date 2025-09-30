@@ -15,7 +15,6 @@ func _draw():
 func _process(delta: float) -> void:
 	count+=1
 	if count == timer:
-		print("lerolero")
 		count = 0
 		timer = randi_range(30, 45)
 		for i in range(0, randi_range(1, 2)):

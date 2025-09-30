@@ -25,23 +25,27 @@ offset_bottom = 192.0
 text = "Pontos"
 horizontal_alignment = 1
 
-[node name="Button" type="Button" parent="."]
+[node name="Sair" type="Button" parent="."]
 offset_left = 176.0
 offset_top = 232.0
 offset_right = 240.0
 offset_bottom = 256.0
 text = "SAIR"
 
-[node name="Button2" type="Button" parent="."]
+[node name="Proximo" type="Button" parent="."]
 offset_left = 256.0
 offset_top = 232.0
 offset_right = 320.0
 offset_bottom = 256.0
 text = "PROXIMO"
 
-[node name="Button3" type="Button" parent="."]
+[node name="Reiniciar" type="Button" parent="."]
 offset_left = 176.0
 offset_top = 200.0
 offset_right = 320.0
 offset_bottom = 224.0
 text = "TENTAR NOVAMENTE"
+
+[connection signal="pressed" from="Sair" to="." method="_on_sair_pressed"]
+[connection signal="pressed" from="Proximo" to="." method="_on_proximo_pressed"]
+[connection signal="pressed" from="Reiniciar" to="." method="_on_reiniciar_pressed"]
