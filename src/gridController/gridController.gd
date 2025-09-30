@@ -18,6 +18,7 @@ var player_scene = preload("res://gridController/playerScene/playerScene.tscn")
 var winning_Cell_Scene = preload("res://gridController/winningCell/winningCell.tscn")
 var fishhook_Scene = preload("res://gridController/fishhookScene/fishhookScene.tscn")
 var vitoria = preload("res://vitoria/vitoria.tscn")
+var _pontuacaoPerdida = preload("res://mainScene/pontuacaoPerdida.tscn")
 var player = null
 var playerOriginalPos = Vector2(0, 0)
 
@@ -71,6 +72,7 @@ func spawn_fishhook(pos: Vector2):
 
 func is_cell_valid(pos: Vector2) -> bool:
 	if pos.x < 0 or pos.x >= GRID_WIDTH or pos.y < 0 or pos.y >= GRID_HEIGHT:
+		mostrar_pontuacao_perdida(pos.x * 16, pos.y * 16, 1000)	
 		return false
 	return true
 
@@ -101,19 +103,33 @@ func updatePlayerPosition(old_pos, new_position):
 			instancia.pontos = $LabelPontuacao.pontuação
 			$Control.fila = []
 			get_parent().add_child(instancia)
-			
 		elif original_grid[new_position.x][new_position.y].type == "obstacle":
 			#Perder pontos e voltar posição
 			new_position = old_pos
-			$LabelPontuacao.removerPontos(200)
+			mostrar_pontuacao_perdida(new_position.x * 16, new_position.y * 16, 1000)	
 		elif original_grid[new_position.x][new_position.y].type == "fishhook":
 			#Perder pontos e voltar posição
+			mostrar_pontuacao_perdida(new_position.x * 16, new_position.y * 16, 2000)
 			new_position = playerOriginalPos
-			$LabelPontuacao.removerPontos(1000)
+			
+			$Control.fila = []
 
 	player.setup(new_position, self, $Control)
 	
+<<<<<<< Updated upstream
 func on_executar(instrucoes_usadas):
+=======
+func mostrar_pontuacao_perdida(x, y, pontos):
+	$LabelPontuacao.removerPontos(pontos)
+	var pontuacao_perdida = _pontuacaoPerdida.instantiate()
+	pontuacao_perdida.get_child(0).pontuacaoPerdida = pontos
+	pontuacao_perdida.position.x = x
+	pontuacao_perdida.position.y = y
+	pontuacao_perdida.scale = Vector2(0.5, 0.5)
+	add_child(pontuacao_perdida)
+
+func on_executar():
+>>>>>>> Stashed changes
 	backup_grid = original_grid
 	playerOriginalPos = player.grid_pos
 	
@@ -126,9 +142,10 @@ func on_executar(instrucoes_usadas):
 	
 func on_finalizar():
 	original_grid = backup_grid
-	
 	if get_tree().get_node_count_in_group("tela_vitoria") == 0:
 		updatePlayerPosition(player.grid_pos, playerOriginalPos)
+		mostrar_pontuacao_perdida(0, 0, 10000)	
+		
 	
 	else:
 		$LabelPontuacao.removerPontos(1000)

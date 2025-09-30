@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://cfc4lq5h6a1er"]
+
+[ext_resource type="Script" uid="uid://cioim60onnb4p" path="res://mainScene/pontuacao_perdida.gd" id="1_200v5"]
+
+[node name="PontuacaoPerdida" type="Node2D"]
+z_index = 10
+
+[node name="Label" type="Label" parent="."]
+offset_right = 96.0
+offset_bottom = 40.0
+theme_override_colors/font_color = Color(0.69411767, 0.16078432, 0.20784314, 1)
+theme_override_font_sizes/font_size = 26
+text = "I guess"
+horizontal_alignment = 1
+script = ExtResource("1_200v5")
