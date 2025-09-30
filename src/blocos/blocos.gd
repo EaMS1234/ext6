@@ -156,6 +156,17 @@ func _on_end_button_down() -> void:
 func _on_executar_pressed() -> void:
 	executar.emit()
 	
+	# Bloqueia as funções do jogo
+	for node in get_tree().get_nodes_in_group("bloco_comando"):
+		node.set_process(false)
+	
+	for node in self.get_children():
+		node.set_process_input(false)
+		
+		if node is Button:
+			# node.mouse_filter = Control.MOUSE_FILTER_IGNORE
+			node.disabled = true
+	
 	var lista = get_tree().get_nodes_in_group("bloco_comando")
 	lista.sort_custom(func(a, b): return a.pos_fila < b.pos_fila)
 	
@@ -201,6 +212,17 @@ func _on_executar_pressed() -> void:
 		await get_tree().create_timer(delay / 1000.0).timeout
 	
 	finalizar.emit()
+	
+	# Re-ativa as funções do jogo
+	for node in get_tree().get_nodes_in_group("bloco_comando"):
+		node.set_process(true)
+	
+	for node in self.get_children():
+		node.set_process_input(true)
+		
+		if node is Button:
+			# node.mouse_filter = Control.MOUSE_FILTER_IGNORE
+			node.disabled = false
 
 func _on_remover_pressed() -> void:
 	rm_elemento(-1)
