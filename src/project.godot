@@ -10,7 +10,9 @@ config_version=5
 
 [application]
 
-config/name="Extensão"
+config/name="PrograMAR"
+config/description="Aprenda sobre estruturas de repetição e loops em um jogo interativo! Você conseguirá completar todos os níveis com o menor número de passos?"
+config/version="1.0"
 run/main_scene="uid://nf02qkt0d7l8"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="uid://bhlsy2kciy7pe"
