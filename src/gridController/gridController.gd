@@ -116,9 +116,6 @@ func updatePlayerPosition(old_pos, new_position):
 
 	player.setup(new_position, self, $Control)
 	
-<<<<<<< Updated upstream
-func on_executar(instrucoes_usadas):
-=======
 func mostrar_pontuacao_perdida(x, y, pontos):
 	$LabelPontuacao.removerPontos(pontos)
 	var pontuacao_perdida = _pontuacaoPerdida.instantiate()
@@ -128,8 +125,7 @@ func mostrar_pontuacao_perdida(x, y, pontos):
 	pontuacao_perdida.scale = Vector2(0.5, 0.5)
 	add_child(pontuacao_perdida)
 
-func on_executar():
->>>>>>> Stashed changes
+func on_executar(instrucoes_usadas):
 	backup_grid = original_grid
 	playerOriginalPos = player.grid_pos
 	
