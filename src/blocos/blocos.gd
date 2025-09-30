@@ -95,6 +95,25 @@ func reposicionar_elemento(bloco):
 
 # Função principal
 func _process(_delta: float) -> void:
+	if len($InputList.get_children()) == 0:
+		$Remover.disabled = true
+		$Executar.disabled = true
+		
+		for node in get_tree().get_nodes_in_group("botoes_adicionar"):
+			node.disabled = false
+		
+	elif len($InputList.get_children()) <= 34:
+		for node in self.get_children():
+			if node is Button:
+				node.disabled = false
+		
+	else:
+		$Remover.disabled = false
+		$Executar.disabled = false
+		
+		for node in get_tree().get_nodes_in_group("botoes_adicionar"):
+			node.disabled = true
+	
 	if modo and get_tree().get_node_count_in_group("input_loop") == 0:
 		# Posiciona o ícone do bloco em baixo do mouse
 		var mouse = get_viewport().get_mouse_position()
