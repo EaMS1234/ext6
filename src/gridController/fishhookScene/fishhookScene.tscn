@@ -1,11 +1,50 @@
-[gd_scene load_steps=3 format=3 uid="uid://dq5do406wsr03"]
+[gd_scene load_steps=8 format=3 uid="uid://dq5do406wsr03"]
 
 [ext_resource type="Script" uid="uid://tnf3gfxcgyy6" path="res://gridController/fishhookScene/fishhook.gd" id="1_1llk2"]
-[ext_resource type="Texture2D" uid="uid://c3a5kt56e10le" path="res://gridController/fishhookScene/fishhook.png" id="2_xe8f3"]
+[ext_resource type="Texture2D" uid="uid://craklacg1i06a" path="res://gridController/fishhookScene/fishhook-Sheet.png" id="2_xe8f3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e4338"]
+atlas = ExtResource("2_xe8f3")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lw20r"]
+atlas = ExtResource("2_xe8f3")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kh7py"]
+atlas = ExtResource("2_xe8f3")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yegkk"]
+atlas = ExtResource("2_xe8f3")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vnn6u"]
+animations = [{
+"frames": [{
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_e4338")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_lw20r")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_kh7py")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_yegkk")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Fishhook" type="Node2D"]
 script = ExtResource("1_1llk2")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(8, 8)
-texture = ExtResource("2_xe8f3")
+sprite_frames = SubResource("SpriteFrames_vnn6u")
+autoplay = "default"
+frame = 3
+frame_progress = 1.0

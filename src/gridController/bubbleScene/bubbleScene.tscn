@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://k13njr02vips"]
+
+[ext_resource type="Script" uid="uid://dkrs6va78d315" path="res://gridController/bubbleScene/bubble_scene.gd" id="1_c8tlg"]
+[ext_resource type="Texture2D" uid="uid://cwsfun8t2gme5" path="res://gridController/bubbleScene/bubble.png" id="1_nudu4"]
+
+[node name="Bubble" type="Node2D"]
+script = ExtResource("1_c8tlg")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(8, 8)
+texture = ExtResource("1_nudu4")
