@@ -18,7 +18,7 @@ obstacle_positions = Array[Vector2]([Vector2(9, 1), Vector2(8, 3), Vector2(7, 4)
 fishhook_positions = Array[Vector2]([Vector2(2, 3), Vector2(3, 3), Vector2(5, 7)])
 init_player_pos = Vector2(9, 0)
 win_cell_pos = Vector2(0, 9)
-minInstructions = 10
+minInstructions = 6
 
 [node name="Control" parent="GridControllerScene" instance=ExtResource("2_4lbap")]
 anchors_preset = 0

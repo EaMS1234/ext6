@@ -12,18 +12,17 @@ config_version=5
 
 config/name="PrograMAR"
 config/description="Aprenda sobre estruturas de repetição e loops em um jogo interativo! Você conseguirá completar todos os níveis com o menor número de passos?"
-config/version="1.0"
+config/version="1.1"
 run/main_scene="uid://nf02qkt0d7l8"
 config/features=PackedStringArray("4.5", "Forward Plus")
+boot_splash/image="uid://cluo74yrxqpl2"
 config/icon="uid://bhlsy2kciy7pe"
 
 [display]
 
 window/size/viewport_width=480
 window/size/viewport_height=270
-window/size/resizable=false
 window/stretch/mode="viewport"
-window/stretch/aspect="expand"
 
 [global_group]
 
@@ -45,4 +44,5 @@ mouse_click={
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 environment/defaults/default_clear_color=Color(0.8646751, 0.86467516, 0.8646751, 1)
